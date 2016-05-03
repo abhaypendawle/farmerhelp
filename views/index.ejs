@@ -96,6 +96,7 @@
                      alt="FarmerHelp Home"/>
             </a>
             <div class="pull-right">
+                <button id="pricetrends">Price Trends</button>
                 <button id="logout">Logout</button>
             </div>
 
@@ -112,6 +113,11 @@
             document.location.href="http://farmerhelp.mybluemix.net";
         }});
     });
+</script>
+<script type="text/javascript">
+    document.getElementById("pricetrends").onclick = function () {
+        location.href = "http://farmerhelp.mybluemix.net/#/pricetrends";
+    };
 </script>
 </body>
 </html>
