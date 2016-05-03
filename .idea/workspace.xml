@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="96b335b5-6820-4ae1-a942-c04c873483a3" name="Default" comment="Merge branch 'master' of https://github.com/pratiksanglikar/amazonfresh&#10;&#10;# Conflicts:&#10;#&#9;public/javascripts/app.js&#10;#&#9;public/stylesheets/style.css&#10;#&#9;views/index.ejs&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascripts/farmers/farmerhandler.js" afterPath="$PROJECT_DIR$/javascripts/farmers/farmerhandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/FarmerService.js" afterPath="$PROJECT_DIR$/public/javascripts/services/FarmerService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/farmers/homepage.html" afterPath="$PROJECT_DIR$/public/partials/farmers/homepage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/farmers.js" afterPath="$PROJECT_DIR$/routes/farmers.js" />
     </list>
     <ignored path="amazonfresh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,20 +81,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FarmerService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FarmerService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/services/FarmerService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.19767442">
+              <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="farmerhandler.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="farmerhandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascripts/farmers/farmerhandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7084048">
+            <state vertical-scroll-proportion="0.0">
               <caret line="208" column="28" selection-start-line="208" selection-start-column="28" selection-end-line="208" selection-end-column="28" />
               <folding>
                 <element signature="e#6348#7037#0" expanded="false" />
@@ -174,9 +169,9 @@
         <option value="$PROJECT_DIR$/public/partials/farmers/homepage.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/FarmerService.js" />
         <option value="$PROJECT_DIR$/routes/farmers.js" />
         <option value="$PROJECT_DIR$/javascripts/farmers/farmerhandler.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/services/FarmerService.js" />
       </list>
     </option>
   </component>
@@ -678,7 +673,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25040916" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25040916" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1085,19 +1080,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js">
+    <entry file="file://$PROJECT_DIR$/javascripts/farmers/farmerhandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/services/FarmerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding />
+          <caret line="208" column="28" selection-start-line="208" selection-start-column="28" selection-end-line="208" selection-end-column="28" />
+          <folding>
+            <element signature="e#6348#7037#0" expanded="false" />
+            <element signature="e#7989#9162#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1109,14 +1099,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascripts/farmers/farmerhandler.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7084048">
-          <caret line="208" column="28" selection-start-line="208" selection-start-column="28" selection-end-line="208" selection-end-column="28" />
-          <folding>
-            <element signature="e#6348#7037#0" expanded="false" />
-            <element signature="e#7989#9162#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/services/FarmerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19767442">
+          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

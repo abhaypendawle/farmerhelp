@@ -28,7 +28,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
         },
 
         getMyTweets : function () {
-            var url = "http://localhost:3000/farmers/getMyTweets";
+            var url = "http://farmerhelp.mybluemix.net/farmers/getMyTweets";
             var def = $q.defer();
             $http({
                 method: 'POST',
@@ -96,7 +96,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             return def.promise;
         },
         postTweet: function (info) {
-            var url = "http://localhost:3000/farmers/postTweet";
+            var url = "http://farmerhelp.mybluemix.net/farmers/postTweet";
             var def = $q.defer();
             $http({
                 method: 'POST',
