@@ -212,6 +212,60 @@ exports.getAllTweets = function () {
 };
 
 
+
+
+exports.createResource = function (info, user) {
+    console.log("In Resources");
+    console.log(info);
+    var resourceID = Crypto.createHash('sha1').update(info.resourceName + user.ssn + new Date().getTime()).digest('hex');
+    info.resourceID = resourceID;
+    var deferred = Q.defer();
+    if (UserTypes.FARMER == user.usertype) {
+        var isValid = _validateResourceInfo(info);
+        if (isValid) {
+            info = _sanitizeResourceInfo(info, user);
+            var cursor = MongoDB.collection("resources").insert(info);
+            cursor.then(function (user) {
+                deferred.resolve(user);
+            }).catch(function (error) {
+                deferred.reject(error);
+            });
+        } else {
+            deferred.reject("All values must be provided!");
+        }
+    } else {
+        deferred.reject("Not a farmer!");
+        return deferred.promise;
+    }
+    return deferred.promise;
+};
+
+
+_sanitizeResourceInfo = function (info, user) {
+    info.farmerFirstName = user.firstName;
+    info.farmerLastName = user.lastName;
+    info.farmerSSN = user.ssn;
+    info.isApproved = false;
+    delete info.ssn;
+    return info;
+}
+
+
+_validateResourceInfo = function (info) {
+    console.log(info.resourceName);
+    console.log(info.resourcedescription);
+    if (Utilities.isEmpty(info.resourceID) ||
+        Utilities.isEmpty(info.resourceName) ||
+        Utilities.isEmpty(info.resourcePrice) ||
+        Utilities.isEmpty(info.resourcedescription)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+};
+
+
 _sanitizeFarmerInfo = function (info) {
     info.password = PasswordManager.encryptPassword(info.password);
     info.usertype = UserTypes.FARMER;

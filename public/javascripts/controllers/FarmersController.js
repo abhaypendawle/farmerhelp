@@ -71,6 +71,11 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         $scope.vari = 2;
     }
 
+    $scope.regResource = function ()
+    {
+        $scope.vari = 4;
+    }
+
 
     $scope.getMyProfile = function () {
         $scope.vari = 1;
@@ -135,6 +140,24 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
         }
         var promise = ProductService.createproduct(info);
+        promise.then(function (result) {
+            alert("Success!");
+        }, function (error) {
+            alert("Error - " + error);
+        });
+    }
+
+
+    $scope.createResource = function () {
+        $scope.vari = 4;
+        var info = {
+            "resourceName": $scope.resourceName,
+            "resourcePrice": $scope.resourcePrice,
+            "resourcedescription": $scope.resourcedescription,
+            "resourceImage": $scope.resourceImage
+
+        }
+        var promise = FarmerService.createresource(info);
         promise.then(function (result) {
             alert("Success!");
         }, function (error) {

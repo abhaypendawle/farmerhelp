@@ -74,6 +74,31 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             return def.promise;
         },
 
+        createresource: function (info) {
+            var url = "http://farmerhelp.mybluemix.net/farmers/regResource";
+            var def = $q.defer();
+            $http({
+                method: 'POST',
+                url: url,
+                data: {
+                    "info": info
+                }
+            }).then(function (data) {
+                if (data.data.success) {
+                    def.resolve();
+                } else {
+                    def.reject(data.data.error);
+                }
+            }, function (error) {
+                if(error.status=== 302)
+                {
+                    $window.location.href="http://farmerhelp.mybluemix.net/#auth/login";
+                }
+                def.reject(error.data.error);
+            });
+            return def.promise;
+        },
+
         signup: function (info) {
             var url = "http://farmerhelp.mybluemix.net/farmers";
             var def = $q.defer();

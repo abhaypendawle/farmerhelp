@@ -16,6 +16,8 @@
         </a><span style="margin-left: 12rem" class="notification"></span></li>
         <li><a ng-click="regProduct()">Register Product <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification">{{farmlength}}</span></li>
+        <li><a ng-click="regResource()">Register Resources <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification"></span></li>
         <li><a ng-click="getAllFarmers()">My Products &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="showTweets()">Farmer Feed <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
@@ -310,6 +312,60 @@
 </div>
 
 <!-- Product Code Ends -->
+
+
+<!-- Resource Code Starts -->
+<div ng-show="vari==4">
+    <div id = "content" class = "container"">
+    <div id = "registration" class = "productarea">        <h1 style="font-size: 2.5rem">Create New Resource</h1>
+
+        <div class="demo-section k-content">
+            <form>
+                <div kendo-tab-strip k-content-urls="[ null, null]">
+                    <ul>
+                        <li class="k-state-active">Create Resource Information</li>
+                    </ul>
+
+                    <div>
+
+
+                            <span class="form-group product-name">
+                                 <input id="product-name" type="resourceName" name="resourceName" ng-model="resourceName" class="form-control" placeholder="Resource Name"
+                                        title="Product Name" /><br><br>
+                            </span>
+                            <span class="form-group product-price">
+                                 <input id="product-price" type="resourcePrice" name="resourcePrice" ng-model="resourcePrice" class="form-control" placeholder="Resource Price"
+                                        title="Product Price" /><br><br>
+                            </span>
+                            <span class="form-group description">
+                                 <input id="description" type="resourcedescription" name="resourcedescription" ng-model="resourcedescription" class="form-control" placeholder="Resource Description"
+                                        title="Product Description" /><br><br>
+
+                            </span>
+                            <span class="form-group resourceImage">
+                                     <input id="productImage" type="text" name="resourceImage" ng-model="resourceImage" class="form-control" placeholder="Resource Image URL"
+                                            title="Enter URL for Resource Image" /><br><br>
+                            </span>
+
+                            <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="createResource()" >Add!</button>
+                            </span>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Resource Code Ends -->
 
 
 

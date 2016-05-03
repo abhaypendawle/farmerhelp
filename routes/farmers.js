@@ -186,5 +186,24 @@ router.post("/getMyTweets", Auth.requireLogin, function (req, res) {
 });
 
 
+router.post("/regResource", Auth.requireLogin, function (req, res) {
+    console.log("Here");
+    var user = req.session.user;
+    var promise = FarmerHandler.createResource(req.body.info, user);
+    promise.done(function () {
+        res.send({
+            success: true,
+            error: null,
+            data: "Resource Added successfully!"
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
 
 module.exports = router;
