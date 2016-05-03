@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--<html>
+<head>
+    <title></title>
+ <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.1.412/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.default.min.css" />
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2016.1.412/js/kendo.all.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>-->
+<div id="example">
+                  <div class="row" style="margin-top: -18rem !important;opacity: .80; padding: 4rem;border: black;">
+                  <div class="col-sm-4 col-md-4"></div>
+                  <div class="col-sm-4 col-md-4" style="border: solid;background-color: snow;border:1rem;>
+                  <div class="demo-section k-content" style="opacity: .50; border-radius: 1rem;background-color: snow" >
+               
+              
+                <h4 style="margin-top: 1em;padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">Date:</h4>
+                <input id="dates" style="width: 100%;color: black; font-weight: bolder;" />
+             
+                <h4 style="margin-left: 1rem; font-weight: bold; color: black;">State:</h4>
+                <input id="states" style="width: 100%;color: black; font-weight: bolder;" />
+
+                <h4 style="margin-left: 1rem; font-weight: bold; color: black;">District:</h4>
+                <input id="districts" style="width: 100%;color: black;font-weight: bolder;" />
+
+                <h4 style="margin-left: 1rem; font-weight: bold; color: black;">Market:</h4>
+                <input id="markets" style="width: 100%;color: black;font-weight: bolder;" />
+                
+                <h4 style="padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">Commodity:</h4>
+                <input id="commodities" style="width: 100%;color: black;font-weight: bolder;" />
+                
+                 <h4 style="padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">Variety:</h4>
+                <input id="varieties" style="width: 100%;color: black;font-weight: bolder;" />
+                
+ 				<h4 style="padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">Price:</h4>
+                <div id="modalprice" style="width: 100%;color: black;font-weight: bolder;"></div>
+                
+                <h4 style="padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">MinPrice:</h4>
+                <div id="minprice" style="width: 100%;color: black; font-weight: bolder;"></div>
+                
+                <h4 style="padding-top: 1em;margin-left: 1rem; font-weight: bold; color: black;">MaxPrice:</h4>
+                <div id="maxprice" style="width: 100%;color: black;font-weight: bolder;"></div>
+                <!--<button class="k-button k-primary" id="get" style="margin-top: -1em; float: right;">View Order</button>--->
+
+            </div>
+            </div>
+            </div>
+            
+            <style>
+                .k-readonly
+                {
+                    color: gray;
+                    
+                  }
+               .k-input {
+             color: #2e2e2e;
+             opacity: .85;
+             background-color: snow;
+           }
+            </style>
+
+            <script>
+                $(document).ready(function() {
+                	
+                	var data = new Array();
+            		var files = new Array();
+            		
+            		var date1 = new Object();
+                	date1.date = "29 April 2016";
+                	date1.filename = "PriceTrendsData/xml1.xml";
+                	
+                	var date2 = new Object();
+                	date2.date = "30 April 2016";
+                	date2.filename = "PriceTrendsData/xml30april.xml";
+                	
+                	var date3 = new Object();
+                	date3.date = "2 May 2016";
+                	date3.filename = "PriceTrendsData/xml30april.xml";
+                	
+            		
+            		files.push(date1);
+            		files.push(date2);
+            		files.push(date3);
+                	
+                		var dates = $("#dates").kendoDropDownList({
+      			        	optionLabel: "Select Date...",
+      			        	dataTextField: "date",
+                            dataValueField: "filename",
+      			            close:callFile,
+      			            dataSource:files
+      			            
+      			        }).data("kendoDropDownList");	
+                	
+                	
+                	
+            		function callFile(){
+            			var filename = $("#dates").val();
+            			$.ajax({
+                			type : "GET",
+                			url : filename,
+                			dataType : "xml",
+                			cache : false,
+                			success : function(result) {
+                				$(result).find('NewDataSet').each(function() {
+                					$(this).find("Table").each(function() {
+                						var person = new Object();
+                						person.state = $(this).find("State").text();
+                						person.disctrict = $(this).find("District").text();
+                						person.market = $(this).find("Market").text();
+                						person.Commodity = $(this).find("Commodity").text();
+                						person.Variety = $(this).find("Variety").text();
+                						person.Arrival_Date = $(this).find("Arrival_Date").text();
+                						person.Min_x0020_Price = $(this).find("Min_x0020_Price").text();
+                						person.Max_x0020_Price = $(this).find("Max_x0020_Price").text();
+                						person.Modal_x0020_Price = $(this).find("Modal_x0020_Price").text();
+                						data.push(person);
+                						
+                					});
+                				});
+                				show();
+                			},
+                			async : true
+                		});
+            			
+            		}
+            		
+            		var show = function(){
+            		
+            			  var categories = $("#states").kendoDropDownList({
+      			        	optionLabel: "Select State...",
+      			           
+      			            close:onStateSelect,
+      			            dataSource: getStates()
+      			            
+      			        }).data("kendoDropDownList");
+            		}
+            		
+            		var getStates = function(){
+            			var stateArray = new Array();
+            			
+            			data.forEach( function (arrayItem)
+            					{
+            					    var x = arrayItem;
+            					    var found = $.inArray(x.state, stateArray) > -1;
+            					    if(!found){
+            					    	stateArray.push(x.state);
+            					    }
+            					});
+            			return stateArray;
+            		}
+            		
+                	function onStateSelect(e){
+                		
+                		
+                		 var products = $("#districts").kendoDropDownList({
+                             autoBind: false,
+                           
+                             optionLabel: "Select district...",
+     			             close:onDestrictSelect,
+                             dataSource: getDisctrict()
+                         }).data("kendoDropDownList");
+
+                	}
+                
+                	var getDisctrict = function(){
+                		var selected = $("#states").val();
+						var destrictArray = new Array();
+            			data.forEach( function (arrayItem)
+            					{
+            					    var x = arrayItem;
+            					    if(x.state==selected){
+            					   		 var found = $.inArray(x.disctrict, destrictArray) > -1;
+            					    		if(!found){
+            					    			destrictArray.push(x.disctrict);
+            					    	}
+            					   }
+            					});
+            			return destrictArray;
+            			
+                	}
+                	
+                	var onDestrictSelect = function(){
+                		 var orders = $("#markets").kendoDropDownList({
+                             autoBind: false,
+                           
+                             optionLabel: "Select Market...",
+     			           close:onMarketSelect,
+                             dataSource: getMarkets()
+                         }).data("kendoDropDownList");
+                	}
+                	
+                	var getMarkets = function(){
+                		var selectedState = $("#states").val();
+                		var selectedDestrict = $("#districts").val();
+						var marketArray = new Array();
+            			data.forEach( function (arrayItem)
+            					{
+            					    var x = arrayItem;
+            					    if(x.state==selectedState && x.disctrict == selectedDestrict){
+            					   		 var found = $.inArray(x.market, marketArray) > -1;
+            					    		if(!found){
+            					    			marketArray.push(x.market);
+            					    	}
+            					   }
+            					});
+            			return marketArray;
+            			
+                	}
+                	
+                	
+                	//commodity
+                	var onMarketSelect = function(){
+               		 var orders = $("#commodities").kendoDropDownList({
+                            autoBind: false,
+                          
+                            optionLabel: "Select Commodities...",
+    			           close:onCommoditySelect,
+                            dataSource: getCommodity()
+                        }).data("kendoDropDownList");
+               	}
+               	
+               	var getCommodity = function(){
+               		var selectedState = $("#states").val();
+               		var selectedDestrict = $("#districts").val();
+               		var selectedMarket = $("#markets").val();
+						var commodityArray = new Array();
+           			data.forEach( function (arrayItem)
+           					{
+           					    var x = arrayItem;
+           					    if(x.state==selectedState && x.disctrict == selectedDestrict && x.market == selectedMarket){
+           					   		 var found = $.inArray(x.Commodity, commodityArray) > -1;
+           					    		if(!found){
+           					    			commodityArray.push(x.Commodity);
+           					    	}
+           					   }
+           					});
+           			return commodityArray;
+           			
+               	}
+               	
+               	
+               	//variety
+            	var onCommoditySelect = function(){
+           		 var orders = $("#varieties").kendoDropDownList({
+                        autoBind: false,
+                      
+                        optionLabel: "Select Variety...",
+			           close:onVareitySelect,
+                        dataSource: getVariety()
+                    }).data("kendoDropDownList");
+           	}
+           	
+           	var getVariety = function(){
+           		var selectedState = $("#states").val();
+           		var selectedDestrict = $("#districts").val();
+           		var selectedMarket = $("#markets").val();
+           		var selectedCommodity = $("#commodities").val();
+					var varietyArray = new Array();
+       			data.forEach( function (arrayItem)
+       					{
+       					    var x = arrayItem;
+       					    if(x.state==selectedState && x.disctrict == selectedDestrict && x.market == selectedMarket && x.Commodity == selectedCommodity){
+       					   		 var found = $.inArray(x.Variety, varietyArray) > -1;
+       					    		if(!found){
+       					    			varietyArray.push(x.Variety);
+       					    	}
+       					   }
+       					});
+       			return varietyArray;
+       			
+           	}
+           	
+            	var onVareitySelect = function(){
+           		var selectedState = $("#states").val();
+           		var selectedDestrict = $("#districts").val();
+           		var selectedMarket = $("#markets").val();
+           		var selectedCommodity = $("#commodities").val();
+           		var selectedVariety = $("#varieties").val();
+           		var product;
+           		data.forEach( function (arrayItem)
+       					{
+       					    var x = arrayItem;
+       					    if(x.state==selectedState && x.disctrict == selectedDestrict && x.market == selectedMarket && x.Commodity == selectedCommodity && x.Variety == selectedVariety){
+       					   		product = x;
+       					   		
+       					   }
+       					});
+           		
+           		$("#modalprice").html(product.Modal_x0020_Price);
+           		$("#minprice").html(product.Min_x0020_Price);
+           		$("#maxprice").html(product.Max_x0020_Price);
+           		
+           	} 
+
+                     $("#get").click(function() {
+                        var categoryInfo = "\nCategory: { id: " + categories.value() + ", name: " + categories.text() + " }",
+                            productInfo = "\nProduct: { id: " + products.value() + ", name: " + products.text() + " }",
+                            orderInfo = "\nOrder: { id: " + orders.value() + ", name: " + orders.text() + " }";
+
+                        alert("Order details:\n" + categoryInfo + productInfo + orderInfo);
+                    });                
+              });
+            </script>
+        </div>
+
+
+<!--</body>
+</html>-->

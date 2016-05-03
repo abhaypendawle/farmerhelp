@@ -60,6 +60,8 @@ app.config(function ($routeProvider, $locationProvider) {
 	}).when("/analytics/tripsanalysismap", {
 		templateUrl: "partials/analytics/TripAnalysisMap.html",
 		controller: "TripAnalysisMap"
+	}).when("/pricetrends", {
+		templateUrl: "partials/dopdownlist.html"
 	}).otherwise({
 		redirectTo: "/index"
 	});
