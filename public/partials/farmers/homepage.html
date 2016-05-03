@@ -1,0 +1,317 @@
+<div id = "AdminSidePanel">
+    <div id = "userbox">
+        <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
+        <span id = "admin-name">
+            <button style="background-color: transparent; border: none" class="dropdown-toggle" data-toggle="dropdown" type="button" >
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                </ul>
+            </button>
+        </span>
+    </div>
+
+    <ul style="list-style: none" class = "sidebar-nav">
+        <li><a  ng-click="getMyProfile()">View My Profile<img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male-24.png" />
+        </a><span style="margin-left: 12rem" class="notification"></span></li>
+        <li><a ng-click="regProduct()">Register Product <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+        <li><a ng-click="getAllFarmers()">My Products &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+        <!--<li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
+        </a></li>-->
+    </ul>
+</div>
+
+
+<div class = "searchdiv ">
+    <input id = "searchAdmin" type="text" placeholder="Search" ng-model = "searchText" />
+    <button id="searchButton" type="button">
+        <img style="height: 16px; width: 16px" src="https://cdn2.iconfinder.com/data/icons/kailoon/myicon/search.png" /></button>
+    <a style="text-decoration: none" id="advanced-search" ng-click = "popup.center().open()" ng-show="!popupvisible">Advanced Search</a>
+</div>
+
+<div class="admin-advanced-search-window" kendo-window = "popup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; onAdvancedSearchWindowOpen();" k-on-close="popupvisible = false">
+
+    <div class="container admin-advanced-search-window-container">
+        <div class = "col-md-4 form-group dropdown">
+            <label style="margin-left: 14rem">Search</label>
+            <select  style="margin-left: 20rem;margin-top: -4rem;" kendo-drop-down-list = "typeSelectionList" required ng-model = "type" >
+                <option oi-options selected = "true" value = "Farmers">Farmers</option>
+                <option oi-options value = "Products">Products</option>
+                <option oi-options value = "Customers">Customers</option>
+                <option oi-options value = "Trips">Trips</option>
+            </select>
+        </div>
+    </div>
+
+    <div id = "Customers" ng-if= "type == 'Customers'">
+        <div class="container admin-advanced-search-window-container">
+
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="firstName" ng-model="firstName" class="form-control" placeholder="First Name"
+                       title="First Name" />
+            </div>
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                       title="Last Name" />
+            </div>
+
+        </div>
+        <div class="container admin-advanced-search-window-container">
+
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="city" ng-model="city" class="form-control" placeholder="City"
+                       title="City" />
+            </div>
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="zipcode" ng-model="zipcode" class="form-control" placeholder="Zip Code"
+                       title="Zip Code" />
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <button id="advanced-search-button" type="button" class="btn btn-primary" >Search</button>
+        </div>
+    </div>
+
+
+    <div id = "Farmers" ng-if = "type == 'Farmers'">
+        <div class="container admin-advanced-search-window-container">
+
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="firstName" ng-model="firstName" class="form-control" placeholder="First Name"
+                       title="First Name" />
+            </div>
+            <div class="col-sm-5">
+                <input style="width: 24rem" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                       title="Last Name" />
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<!--
+<div class="pending-request-wrapper col-md-8 col-md-offset-4">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in data.data">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</label>
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 1"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productName,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>
+    </div>
+</div>
+-->
+
+<div id = "content" class = "container" ng-show = "vari == 1">
+    <div id = "registration" class = "farmer1area">        <h1 style="font-size: 2.5rem"></h1>
+
+        <div class="demo-section k-content" >
+            <form data-toggle="validator">
+                <div kendo-tab-strip k-content-urls="[ null, null]">
+                    <ul>
+                        <li class="k-state-active">Personal Information</li>
+                        <li>General Information</li>
+                         <!--
+                        <li>Credit Card Information</li>
+                        -->
+
+                    </ul>
+                    <div>
+                            <span class="form-group farmer1-text">
+                                <input id="farmer1-firstName" type="text" name="firstName" ng-model="data.firstName" class="form-control" placeholder="First Name"
+                                       title="First Name" /><br><br>
+                            </span>
+                            <span class="form-group farmer1-text">
+                                <input id="farmer1-lastName" type="text" name="lastName" ng-model="data.lastName" class="form-control" placeholder="Last Name"
+                                       title="Last Name" /><br><br>
+                            </span>
+                            <span class="form-group farmer1-email">
+                                 <input id="farmer1-email" type="email" name="email" ng-model="data.email" class="form-control" placeholder="E-mail Address"
+                                        title="E-mail Address" /><br><br>
+                            </span>
+                              <span class="form-group farmer1-password">
+                                  <input type="password" name="customer-password" id="farmerpassword" ng-model="data.password" ng-model="data.password" ng-model-options="{allowInvalid: true}" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" class="form-control" placeholder="Password" />
+                                  <password-strength ng-model="credentials.password"></password-strength>
+                                <br>
+                              </span>
+                            <span class="form-group farmer1-password">
+                             <input type="password" name="verifyPassword" id = "farmer1verifyPassword" ng-model="data.password" placeholder="Verify Password"
+                                    class="form-control" title="Verify Password" />
+                             <span id = "marker"></span><br><br>
+                            </span>
+                        <button id="searchButton1" type="button" ng-click = "updateFarmerProfile()">  Update </button>
+                    </div>
+
+                    <div>
+                           <span class="form-group farmer1-address">
+                                 <textarea id="farmer1-address" name="address" ng-model="data.address" class="form-control" placeholder="Enter Address"
+                                           title="Enter Address" ></textarea><br><br>
+                            </span>
+                            <span class="form-group farmer1-state">
+                                <select id="farmer1-state" ng-model="state" kendo-drop-down-list ="stateDropDownList" style="width: 28rem;"  placeholder='State'
+                                        k-options="USStatesOptions">
+                                </select>
+                            </span>
+                        <br><br>
+                            <span class="form-group farmer1-city">
+                                 <input id="farmer1-city" type="text" name="city" ng-model="data.city" class="form-control" placeholder="City"
+                                        title="Enter City" />
+                            </span><br><br>
+                            <span class="form-group farmer1-zipcode">
+                                 <input id="farmer1-zipcode" type="text" name="zipcode" ng-model="data.zipCode" class="form-control" placeholder="ZipCode"
+                                        title="Enter zipcode" />
+                            </span><br><br>
+                            <span class="form-group farmer1-number">
+                                 <input id="farmer1-phone" type="number" name="phone" ng-model="data.phoneNumber" class="form-control" placeholder="Phone Number"
+                                        title="Enter Phone Number" />
+                            </span><br><br>
+                             <span class="form-group farmer1-ssn">
+                                     <input id="farmer1-ssn" type="text" name="ssn" ng-model="data.ssn" class="form-control" placeholder="Social Security Number"
+                                            title="Enter Social Security Number" />
+                            </span><br><br>
+
+                    </div>
+                    <!--
+                    <div>
+                        <div class="card-wrapper"></div>
+                        <form>
+                            <span class="form-group farmer1-cardName">
+                                 <input id="farmer1-cardName" type="text" name="name" ng-model="cardName" class="form-control"
+                                        placeholder="Credit Card Name" title="Enter Phone Number" />
+                                <span class="form-group farmer1-cardNumber">
+                                 <input id="farmer1-cardNumber" type="text" name="number" ng-model="cardNumber"
+                                        class="form-control"  placeholder="Credit Card Number" title="Enter Card Number" />
+                                </span>
+                            </span><br><br>
+
+                             <span class="form-group farmer1-expiry">
+                                    <input id="farmer1-expiry" type="text" name="expiry" ng-model="expiry"
+                                           class="form-control"  placeholder="MM/YY" title="Enter Expiry Details"/>
+                                 <span class="form-group farmer1-cvc">
+                                     <input id="farmer1-cvc" type="text" name="cvc" ng-model="cvc"
+                                            class="form-control"  placeholder="CVC" title="Enter CVC Details"/>
+                                </span><br><br>
+                            </span><br><br>
+                                <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="signup()">Sign Up!</button>
+                            </span>
+                        </form>
+                    </div>
+                    -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Product Code Starts -->
+<div id = "content" class = "container" ng-show = "vari == 2">
+    <div id = "registration" class = "productarea">        <h1 style="font-size: 2.5rem">Create New Product</h1>
+
+        <div class="demo-section k-content">
+            <form>
+                <div kendo-tab-strip k-content-urls="[ null, null]">
+                    <ul>
+                        <li class="k-state-active">Create Product Information</li>
+                    </ul>
+
+                    <div>
+
+
+                            <span class="form-group product-name">
+                                 <input id="product-name" type="productName" name="productName" ng-model="productName" class="form-control" placeholder="Product Name"
+                                        title="Product Name" /><br><br>
+                            </span>
+                            <span class="form-group product-price">
+                                 <input id="product-price" type="productPrice" name="productPrice" ng-model="productPrice" class="form-control" placeholder="Product Price"
+                                        title="Product Price" /><br><br>
+                            </span>
+                            <span class="form-group description">
+                                 <input id="description" type="description" name="description" ng-model="description" class="form-control" placeholder="Product Description"
+                                        title="Product Description" /><br><br>
+
+                            </span>
+                            <span class="form-group productImage">
+                                     <input id="productImage" type="text" name="productImage" ng-model="productImage" class="form-control" placeholder="Product Image URL"
+                                            title="Enter URL for Product Image" /><br><br>
+                            </span>
+
+                            <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="createproduct()" >Add!</button>
+                            </span>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Product Code Ends -->
+
+
+
+<!--
+
+<div class="content" ng-repeat = "value in data.data">
+
+    <div class="col-sm-4">
+    <div id ="box">
+
+        <div id= "boxbottombhalf">
+            <button id="confirmButton" type="button" class="btn btn-primary" >Confirm</button>
+        </div>
+        <div id = "innerpic">
+
+            <div id = "innerpiccolor">
+            </div>
+            <div id = "innerbottompiccolor">
+            </div>
+            <h4 id = "h4text" ng-show = "abcd == 1"> {{ value.productName}}</h4>
+            <h4 id = "h5text" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</h4>
+
+        </div>
+
+         <button type="button" class="btn btn-danger" ng-click = "declineReq()">Decline</button>
+    </div>
+    </div>
+</div>-->

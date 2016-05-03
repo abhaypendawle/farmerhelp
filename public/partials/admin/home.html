@@ -1,0 +1,383 @@
+<div id = "AdminSidePanel">
+    <div id = "userbox">
+        <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
+        <span id = "admin-name">
+            <button style="background-color: transparent; border: none" class="dropdown-toggle" data-toggle="dropdown" type="button" >
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                </ul>
+            </button>
+        </span>
+    </div>
+
+    <ul style="list-style: none" class = "sidebar-nav">
+        <li><a ng-click = "goToHome()">Home</a></li>
+        <!--<li><a  ng-click="getPendingCustomers()">Customers &nbsp <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male-24.png" />
+        </a><span style="margin-left: 12rem" class="notification">{{ custlength }}</span></li>-->
+        <li><a  ng-click = "getPendingProducts()">Products &nbsp <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-31-24.png" />
+        </a><span style="margin-left: 11.2rem" class="notification">{{prodlength }}</span></li>
+        <li><a ng-click="getPendingFarmers()">Farmers &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+       <!-- <li><a ng-click="getPendingTrucks()">Trucks &nbsp <img src="https://cdn2.iconfinder.com/data/icons/vehicles-7/24/vehicles-11-24.png" />
+        </a><span class="notification">{{trucklength}}</span></li>
+        <li><a ng-click="getTripsInfo()">Trips &nbsp <img src="https://cdn2.iconfinder.com/data/icons/vehicles-7/24/vehicles-11-24.png" />
+        </a><span class="notification">{{tripslength}}</span></li>-->
+        <li><a ng-click="getBillInfo()">Bills &nbsp <img src="https://cdn2.iconfinder.com/data/icons/vehicles-7/24/vehicles-11-24.png" />
+        </a><span class="notification">{{billslength}}</span></li>
+        <li><a ng-click = "goToRevenuePerDay()">Revenue per Day</a></li>
+        <!--<li><a ng-click = "goToTripsPerCustomer()">Trips per Customer</a></li>
+        <li><a ng-click = "goToTripsPerDriver()">Trips per Driver</a></li>
+        <li><a ng-click = "goToTripsAnalyticsMap()">Trips Analytics Map</a></li>
+        <li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
+        </a></li>-->
+    </ul>
+</div>
+
+
+<div class = "searchdiv ">
+    <input id = "searchAdmin" type="text" placeholder="Search" ng-model = "searchText" />
+    <!--<button id="searchButton" type="button">--->
+        <img style="height: 16px; width: 16px; margin-top:0.4rem;margin-left: 0.2rem " src="https://cdn2.iconfinder.com/data/icons/kailoon/myicon/search.png" /></button>
+    <a style="text-decoration: none" id="advanced-search" ng-click = "popup.center().open()" ng-show="!popupvisible">Advanced Search</a>
+</div>
+
+<div class="admin-advanced-search-window" kendo-window = "popup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; onAdvancedSearchWindowOpen();" k-on-close="popupvisible = false">
+
+    <div class="container admin-advanced-search-window-container">
+        <div class = "col-md-4 form-group dropdown">
+            <label style="margin-left: 14rem">Search</label>
+            <select  style="margin-left: 20rem;margin-top: -4rem;" kendo-drop-down-list = "typeSelectionList" required ng-model = "type" >
+            <option oi-options selected = "true" value = "Farmers">Farmers</option>
+                <option oi-options value = "Products">Products</option>
+                <option oi-options value = "Customers">Customers</option>
+               <!-- <option oi-options value = "Trips">Trips</option>
+                <option oi-options value = "Trucks">Trucks</option>-->
+            </select>
+        </div>
+    </div>
+
+<div id = "Customers" ng-hide= 'Customers'>
+    <div class="container admin-advanced-search-window-container">
+
+        <div class="col-sm-5">
+            <input style="width: 22rem" type="text" name="firstName" ng-model="firstName" class="form-control" placeholder="First Name"
+                   title="First Name" />
+        </div>
+        <div class="col-sm-5">
+            <input style="width: 22rem" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                   title="Last Name" />
+        </div>
+
+    </div>
+    <div class="container admin-advanced-search-window-container">
+
+        <div class="col-sm-5">
+            <input style="width: 22rem" type="text" name="city" ng-model="city" class="form-control" placeholder="City"
+                   title="City" />
+        </div>
+        <div class="col-sm-5">
+            <input style="width: 22rem" type="text" name="zipcode" ng-model="zipcode" class="form-control" placeholder="Zip Code"
+                   title="Zip Code" />
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+        <button class="advanced-search-button btn btn-primary" type="button" ng-click = "advancedSearchCustomers()" >Search</button>
+    </div>
+</div>
+
+
+    <div id = "Farmers" ng-hide='Farmers'>
+        <form>
+        <div class="container admin-advanced-search-window-container">
+
+            <div class="col-sm-5">
+                <input style="width: 22rem" type="text" name="firstName" ng-model="ffirstName" class="form-control" placeholder="First Name"
+                       title="First Name" />
+            </div>
+            <div class="col-sm-5">
+                <input style="width: 22rem" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                       title="Last Name" />
+            </div>
+
+        </div>
+        <div class="container admin-advanced-search-window-container">
+
+            <div class="col-sm-5">
+                <input style="width: 22rem" type="text" name="city" ng-model="city" class="form-control" placeholder="City"
+                       title="City" />
+            </div>
+            <div class="col-sm-5">
+                <input style="width: 22rem" type="text" name="zipcode" ng-model="zipcode" class="form-control" placeholder="Zip Code"
+                       title="Zip Code" />
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <button class="advanced-search-button btn btn-primary" type="button" ng-click = "advancedSearchFarmers()">Search</button>
+        </div>
+        </form>
+    </div>
+
+
+    <div id = "Products" ng-hide='Products'>
+        <form>
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="productName" ng-model="productName" class="form-control" placeholder="Product Name"
+                           title="Product Name" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="description" ng-model="description" class="form-control" placeholder="Description"
+                           title="description" />
+                </div>
+
+            </div>
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="farmerFirstName" ng-model="farmerFirstName" class="form-control" placeholder="Farmer Name"
+                           title="Farmer Name" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="farmerLastName" ng-model="farmerLastName" class="form-control" placeholder="Farmer Last Name"
+                           title="Farmer Last Name" />
+                </div>
+            </div>
+
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="productPrice" ng-model="productPrice" class="form-control" placeholder="Price"
+                           title="Price" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 21rem" type="text" name="farmerSSN" ng-model="farmerSSN" class="form-control" placeholder="Farmer SSN"
+                           title="Farmer SSN" />
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <button class="advanced-search-button btn btn-primary" type="button" ng-click = "advancedSearchProducts()">Search</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id = "Trucks" ng-hide='Trucks'>
+        <form>
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="firstName" ng-model="firstName" class="form-control" placeholder="First Name"
+                           title="First Name" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                           title="Last Name" />
+                </div>
+
+            </div>
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="truckManufacturer" ng-model="truckManufacturer" class="form-control" placeholder="Truck Manufacturer"
+                           title="Truck Manufacturer" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="truckModel" ng-model="truckModel" class="form-control" placeholder="Truck Model"
+                           title="Trcuk Model" />
+                </div>
+            </div>
+
+            <div class="container admin-advanced-search-window-container">
+
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="email" ng-model="email" class="form-control" placeholder="Email"
+                           title="Email" />
+                </div>
+                <div class="col-sm-5">
+                    <input style="width: 22rem" type="text" name="ssn" ng-model="ssn" class="form-control" placeholder="SSN"
+                           title="SSN" />
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <button class="advanced-search-button btn btn-primary" type="button" ng-click = "advancedSearchTrucks()">Search</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 1 || variable == 2 || variable == 3 || variable == 7">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in data.data">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</label>
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 1"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productID,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productID,value.usertype)">Decline</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 10">
+    <div  class = "pending-request-row admin-bills-wrapper container col-md-8" ng-repeat = "value in data">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Bill Number</label>
+                <p>{{value.bill_id}}</p>
+            </div>
+            <div class="col-md-4">
+                <label>Customer ID</label>
+                <p>{{value.customer_id}}</p>
+            </div>
+            <div class="col-md-3">
+                <label>Total Amount</label>
+                <p>${{value.total_amount}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Product Name</label>
+            </div>
+            <div class="col-md-4">
+                <label>Quantity</label>
+            </div>
+            <div class="col-md-3">
+                <label>Price / Unit</label>
+            </div>
+        </div>
+        <div class="row" ng-repeat="item in value.item_details">
+            <div class="col-md-4">
+                <p>{{item.product_name}}</p>
+            </div>
+            <div class="col-md-4">
+                <p>{{item.quantity}}</p>
+            </div>
+            <div class="col-md-3">
+                <p>${{item.price_per_unit}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 9">
+    <div  class = "pending-request-row trip-list container col-md-8" ng-repeat = "value in data">
+        <div class="row trip-list-row">
+            <div class="col-md-5">
+                <p>Customer</p>
+                <label> {{ value.customerFirstName}} {{value.customerLastName}}</label>
+            </div>
+            <div class="col-md-5">
+                <p>Farmer</p>
+                <label>{{value.farmerFirstName}} {{value.farmerLastName}}</label>
+            </div>
+        </div>
+        <div class="row trip-list-row">
+            <div class="col-md-5">
+                <p>Destination</p>
+                <label>{{value.destination}}</label>
+            </div>
+            <div class="col-md-5">
+                <p>Origin</p>
+                <label>{{value.origin}}</label>
+            </div>
+        </div>
+        <div class="row  trip-list-row">
+            <div class="col-md-4">
+                <p>Driver</p>
+                <label>{{value.driverFirstName}} {{value.driverLastName}}</label>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    Order Date
+                </p>
+                <label>{{value.orderTimeString}}</label>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    Expected Delivery Date
+                </p>
+                <label>{{value.deliveryTimeString}}</label>
+            </div>
+        </div>
+        <div class="row delivery-string-wrapper  trip-list-row">
+            <label class="delivery-string">{{value.deliveryString}}</label>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="pending-request-wrapper col-md-8 col-md-offset-4">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in result">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;"> {{ value.firstName}} {{value.lastName}}</label>
+        </div>
+        &lt;!&ndash;<div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productName,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>&ndash;&gt;
+    </div>
+</div>-->
+
+
+<!--
+
+<div class="content" ng-repeat = "value in data.data">
+
+    <div class="col-sm-4">
+    <div id ="box">
+
+        <div id= "boxbottombhalf">
+            <button id="confirmButton" type="button" class="btn btn-primary" >Confirm</button>
+        </div>
+        <div id = "innerpic">
+
+            <div id = "innerpiccolor">
+            </div>
+            <div id = "innerbottompiccolor">
+            </div>
+            <h4 id = "h4text" ng-show = "abcd == 1"> {{ value.productName}}</h4>
+            <h4 id = "h5text" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</h4>
+
+        </div>
+
+         <button type="button" class="btn btn-danger" ng-click = "declineReq()">Decline</button>
+    </div>
+    </div>
+</div>-->

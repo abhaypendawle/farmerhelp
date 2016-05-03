@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <!--Scripts-->
+   <!-- <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+   <script src="/javascripts/vendor/angular-1.5.3.js"></script>-->
+  <!--  <script src="//kendo.cdn.telerik.com/2016.1.412/js/jquery.min.js"></script>-->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2016.1.412/js/angular.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2016.1.412/js/kendo.all.min.js"></script>
+    <script src="/javascripts/vendor/angular-route.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-6Up5K0M_egpVpDL1oX8gk6rp79vG5yU" async defer></script>
+    <script src="/javascripts/vendor/ng-map.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/commons/constants.js"></script>
+    <script src="/javascripts/services/ValidationService.js"></script>
+
+    <!-- Directives scripts -->
+    <script src="/javascripts/directives/passwordpattern.js"></script>
+    <script src="/javascripts/directives/passwordstrength.js"></script>
+
+    <!-- Scripts for authentication-->
+    <script src="/javascripts/services/AuthService.js"></script>
+    <script src="/javascripts/controllers/AuthController.js"></script>
+
+    <!-- Scripts for Trucks -->
+    <script src="/javascripts/services/TruckService.js"></script>
+    <script src="/javascripts/controllers/TrucksController.js"></script>
+
+    <!--  Scripts for farmers  -->
+    <script src="/javascripts/services/FarmerService.js"></script>
+    <script src="/javascripts/controllers/FarmersController.js"></script>
+
+    <!--  Scripts for Analytics -->
+    <script src="/javascripts/services/AnalyticsService.js"></script>
+    <script src="/javascripts/controllers/AnalyticsController.js"></script>
+
+    <!-- Trip Analytics data -->
+    <script src="/javascripts/services/TripAnalyticsService.js"></script>
+    <script src="/javascripts/controllers/TripAnalyticsController.js"></script>
+    <script src="/javascripts/controllers/TripPerCustomerController.js"></script>
+    <script src="/javascripts/controllers/TripAnalysisMap.js"></script>
+
+    <!-- Scripts for customers -->
+    <script src="/javascripts/services/CustomerService.js"></script>
+    <script src="/javascripts/controllers/customersController.js"></script>
+
+    <!-- Scripts for Admin -->
+    <script src="/javascripts/services/AdminService.js"></script>
+    <script src="/javascripts/controllers/AdminController.js"></script>
+
+    <!-- Scripts for bills -->
+    <script src="/javascripts/services/BillService.js"></script>
+    <script src="/javascripts/controllers/BillsController.js"></script>
+
+    <!--Scripts for product-->
+    <script src="/javascripts/services/ProductService.js"></script>
+    <script src="/javascripts/controllers/ProductController.js"></script>
+
+    <!-- Scripts for Trips -->
+    <script src="javascripts/services/TripsService.js"></script>
+    <script src="javascripts/controllers/TripsController.js"></script>
+
+    <!-- Scripts for Validation -->
+    <script src="/javascripts/services/ValidationService.js"></script>
+
+    <!--<script data-main="/javascripts/main.js" src="/javascripts/vendor/require-2.2.0.js"></script>-->
+
+    <!-- Stylesheets -->
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+   <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.1.412/styles/kendo.common.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.1.412/styles/kendo.rtl.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.1.412/styles/kendo.silver.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.1.412/styles/kendo.mobile.all.min.css"/>
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.412/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.412/styles/kendo.material.min.css" />
+
+
+   <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+    <base href="/">
+</head>
+<body ng-app="farmerhelp" background="..\images\background.jpg" >
+<div id="nav">
+    <div class="innerpadding">
+        <li id="logo"><a href="#">
+                <img style="height: 7rem; margin-top: -14px" src="..\images\logo.png"
+                     alt="FarmerHelp Home"/>
+            </a>
+            <div class="pull-right">
+                <button id="logout">Logout</button>
+            </div>
+
+        </li>
+    </div>
+</div>
+<div class="main-content" ng-view>
+
+</div>
+<script src="./jquery/card.js"></script>
+<script>
+    $("#logout").click(function(){
+        $.ajax({url: "http://farmerhelp.mybluemix.net/auth/logout", success: function(result){
+            document.location.href="http://farmerhelp.mybluemix.net";
+        }});
+    });
+</script>
+</body>
+</html>

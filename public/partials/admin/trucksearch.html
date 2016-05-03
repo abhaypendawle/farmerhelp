@@ -1,0 +1,99 @@
+<div id = "AdminSidePanel">
+    <div id = "userbox">
+        <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
+        <span id = "admin-name">
+            <button style="background-color: transparent; border: none" class="dropdown-toggle" data-toggle="dropdown" type="button" >
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                </ul>
+            </button>
+        </span>
+    </div>
+
+    <ul style="list-style: none" class = "sidebar-nav">
+        <li><a ng-click = "goToHome()">Home</a></li>
+        <!--<li><a  ng-click="getPendingCustomers()">Customers &nbsp <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male-24.png" />
+        </a><span style="margin-left: 12rem" class="notification">{{ custlength }}</span></li>-->
+        <li><a  ng-click = "getPendingProducts()">Products &nbsp <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-31-24.png" />
+        </a><span style="margin-left: 11.2rem" class="notification">{{prodlength }}</span></li>
+        <li><a ng-click="getPendingFarmers()">Farmers &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+        <li><a ng-click="getPendingTrucks()">Trucks &nbsp <img src="https://cdn2.iconfinder.com/data/icons/vehicles-7/24/vehicles-11-24.png" />
+        </a><span class="notification">{{trucklength}}</span></li>
+        <li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
+        </a></li>
+    </ul>
+</div>
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 1 || variable == 2 || variable == 3 || variable == 7">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in data.data">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</label>
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 1"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productName,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 8">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in truckResult">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;"> {{ value.firstName}} {{value.lastName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="updateItem" type="button" class="btn btn-primary" ng-click = "truckupdatepopup.center().open()" ng-show="!popupvisible">Update</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="viewItem" type="button" class="btn btn-primary" ng-click = "truckpopup.center().open()" ng-show="!popupvisible">View</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>
+        <div kendo-window = "truckpopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewTruckInfo(value.ssn);" k-on-close="popupvisible = false">
+
+            <label>First Name</label><label> {{ res.firstName}}</label>
+            <label>Last Name</label><label>{{ res.lastName}}</label>
+            <label>Email</label><label>{{res.email }}</label>
+            <label>Phone Number</label><label>{{res.phoneNumber }}</label>
+            <label>Social Security Number</label><label>{{ res.ssn}}</label>
+            <label>Address</label><label>{{ res.address}}</label>
+            <label>City</label><label>{{res.city }}</label>
+            <label>State</label><label>{{ res.state}}</label>
+            <label>Zip code</label><label>{{ res.zipCode}}</label>
+            <label>Truck Manufacturer</label><label>{{ res.truckManufacturer}}</label>
+            <label>Truck Model</label><label>{{ res.truckModel}}</label>
+        </div>
+
+        <div kendo-window = "truckupdatepopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewTruckInfo(value.ssn);" k-on-close="popupvisible = false">
+
+            <label>First Name</label><input type = text ng-model = res.firstName /><br>
+            <label>Last Name</label><input type = text ng-model = res.lastName /><br>
+            <label>Email</label><input type = text ng-model = res.email /><br>
+            <label>Phone Number</label><input type = text ng-model = res.phoneNumber /><br>
+            <label>Social Security Number</label><input type = text ng-model = res.ssn /><br>
+            <label>Address</label><input type = text ng-model = res.address /><br>
+            <label>City</label><input type = text ng-model = res.city /><br>
+            <label>State</label><input type = text ng-model = res.state /><br>
+            <label>Zip code</label><input type = text ng-model = res.zipCode /><br>
+            <label>Truck Manufacturer</label><input type = text ng-model = res.truckManufacturer /><br>
+            <label>Truck Model</label><input type = text ng-model = res.truckModel /><br>
+            <button id="updatebutton" type="button" class="btn btn-primary" ng-click = "updateInfoTruck()">Update</button>
+        </div>
+
+
+    </div>
+</div>
+
+

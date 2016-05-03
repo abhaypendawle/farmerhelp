@@ -1,0 +1,135 @@
+<div id = "AdminSidePanel" style="margin-top: -16rem !important;">
+    <div id = "userbox">
+        <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
+        <span id = "admin-name">
+            <button style="background-color: transparent; border: none" class="dropdown-toggle" data-toggle="dropdown" type="button" >
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                </ul>
+            </button>
+        </span>
+    </div>
+
+    <ul style="list-style: none" class = "sidebar-nav">
+        <li><a ng-click = "goToHome()">Home</a></li>
+        <!--<li><a  ng-click="getPendingCustomers()">Customers &nbsp <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male-24.png" />
+        </a><span style="margin-left: 12rem" class="notification">{{ custlength }}</span></li>-->
+        <li><a  ng-click = "getPendingProducts()">Products &nbsp <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-31-24.png" />
+        </a><span style="margin-left: 11.2rem" class="notification">{{prodlength }}</span></li>
+        <li><a ng-click="getPendingFarmers()">Farmers &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+        <li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
+        </a></li>
+    </ul>
+</div>
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 1 || variable == 2 || variable == 3">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in data.data">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</label>
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 1"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productName,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 6">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in productResult">
+        <div class="col-sm-5">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="updateItem" type="button" class="btn btn-primary" ng-click = "productupdatepopup.center().open()" ng-show="!popupvisible">Update</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="viewItem" type="button" class="btn btn-primary" ng-click = "productpopup.center().open()" ng-show="!popupvisible">View</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Delete</button>
+        </div>
+
+
+        <div kendo-window = "productpopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewProductInfo(value.productID);" k-on-close="popupvisible = false">
+         <div class="row">
+         <div class="col-sm-4 col-md-4">  <label>Product Name</label></div>
+         <div class="col-sm-1 col-md-1">  <label> {{ res.productName}}</label></div>
+         </div>
+
+            <div class="row">
+
+                <div class="col-sm-4 col-md-4"><label>Price</label></div>
+                <div class="col-sm-1 col-md-1"><label>{{ res.productPrice}}</label></div>
+                </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Description</label></div>
+                <div class="col-sm-1 col-md-1"> <label>{{res.description }}</label></div>
+             </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Farmer First Name</label></div>
+                <div class="col-sm-1 col-md-1"><label>{{res.farmerFirstName }}</label></div>
+             </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Farmer Last Name</label></div>
+                <div class="col-sm-1 col-md-1"> <label>{{ res.farmerLasttName}}</label></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Farmer SSN</label></div>
+                <div class="col-sm-3 col-md-3"><label>{{ res.farmerSSN}}</label></div>
+            </div>
+        </div>
+
+        <div kendo-window = "productupdatepopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewProductInfo(value.productID);" k-on-close="popupvisible = false">
+            <div class="row">
+            <div class="col-sm-4 col-md-4"><label>Product Name</label></div>
+            <div class="col-sm-1 col-md-1"><input name = "productName" ng-model= res.productName /></div>
+            </div>
+
+            <div class="row">
+            <div class="col-sm-4 col-md-4"><label>Product Price</label></div>
+            <div class="col-sm-1 col-md-1"> <input name = "productPrice" ng-model= res.productPrice /></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Description</label></div>
+                <div class="col-sm-1 col-md-1"><input name = "description" ng-model= res.description /></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-4 col-md-4"><label>Farmer First Name</label></div>
+                <div class="col-sm-1 col-md-1"><input name = "firstName" ng-model= res.farmerFirstName /></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Farmer Last Name</label></div>
+                <div class="col-sm-1 col-md-1"><input name = "firstName" ng-model= res.farmerLastName /></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Farmer SSN</label></div>
+                <div class="col-sm-3 col-md-3"><input name = "firstName" ng-model= res.farmerSSN /></div>
+            </div>
+
+            <div class="pull-right">
+            <button id="updatebutton" type="button" class="btn btn-primary" ng-click = "updateInfoProduct()" style="margin-right:50rem !important">Update</button>
+             </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,74 @@
+body {
+    background :url(http://g-ec2.images-amazon.com/images/G/01/omaha/images/WelcomePage/af_welcomebackground._V288790855_.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#nav
+{
+    color: #fff;
+    height: 45px;
+    min-width: 1015px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/omaha/images/ui/taskbar-bg.png);
+    border: 0px solid #ccc;
+    border-bottom-width: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 100;
+}
+#logo {
+    list-style-type: none;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+.innerpadding{
+    padding: 8px 10px;
+}
+#h1{
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 18px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+#header{
+    margin-left: 560px;
+    margin-top: 136px;
+}
+#emailOrNumber{
+    margin: 0px;
+    height: 26px;
+    line-height: 26px;
+}
+#password{
+    margin: 0px;
+    height: 26px;
+    line-height: 26px;
+}
+#signInSubmit{
+    background-color: transparent !important;
+    border: 0 none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #669900;
+    font-family: Arial,sans-serif;
+    font-size: 12px !important;
+    text-align: center;
+    height: 34px;
+    line-height: 26px;
+    width: 242px;
+}
+#label{
+    font-size: 14px;
+    color: #363636;
+    font-weight: 600;
+   margin-top: 30px;
+}
+#link{
+    color: black;
+}

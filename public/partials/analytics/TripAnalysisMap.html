@@ -1,0 +1,10 @@
+<div class="trip-analysis-map-wrapper">
+    <ng-map zoom="7" center="[37.3394444, -121.8938889]" class="trip-analysis-map">
+        <shape ng-repeat="shape in polylines"
+               name="polyline"
+               stroke-color="#0000FF"
+               stroke-opacity="0.8"
+               path="{{shape}}"
+               stroke-weight="3"></shape>
+    </ng-map>
+</div>

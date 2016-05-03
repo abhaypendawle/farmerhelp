@@ -1,0 +1,47 @@
+<div id = "content" class = "container">
+    <div id = "registration" class = "area">        <h1 style="font-size: 2.5rem">Create New Product</h1>
+
+        <div class="demo-section k-content">
+                <form>
+                    <div kendo-tab-strip k-content-urls="[ null, null]">
+                        <ul>
+                            <li class="k-state-active">Create Product Information</li>
+                        </ul>
+
+                        <div>
+
+
+                            <span class="form-group product-name">
+                                 <input id="product-name" type="productName" name="productName" ng-model="productName" class="form-control" placeholder="Product Name"
+                                  title="Product Name" /><br><br>
+                            </span>
+                            <span class="form-group product-price">
+                                 <input id="product-price" type="productPrice" name="productPrice" ng-model="productPrice" class="form-control" placeholder="Product Price"
+                                        title="Product Price" /><br><br>
+                            </span>
+                            <span class="form-group description">
+                                 <input id="description" type="description" name="description" ng-model="description" class="form-control" placeholder="Product Description"
+                                        title="Product Description" /><br><br>
+
+                            </span>
+                            <span class="form-group productImage">
+                                     <input id="productImage" type="text" name="productImage" ng-model="productImage" class="form-control" placeholder="Product Image URL"
+                                            title="Enter URL for Product Image" /><br><br>
+                            </span>
+
+                            <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="createproduct()">Add!</button>
+                            </span>
+
+
+
+                         </div>
+
+
+
+
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>

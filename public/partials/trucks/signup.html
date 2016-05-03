@@ -1,0 +1,113 @@
+<div id="content" class="container">
+    <div id="registration" class="area"><h1 style="font-size: 2.5rem">Create New Account</h1>
+
+        <div class="demo-section k-content">
+            <div>
+                <form name="driver-signup">
+                    <div id="trucksTabStrip" kendo-tab-strip="trucksTabStrip">
+                        <ul>
+                            <li class="k-state-active">Personal Information</li>
+                            <li>Truck Information</li>
+                        </ul>
+                        <div>
+                            <span class="form-group truck-text">
+                                <input id="truck-firstName" type="text" name="firstName" ng-model="firstName"
+                                       class="form-control driver-sign-up-input" placeholder="First Name"
+                                       title="First Name" required/>
+                            </span>
+                            <div class="col-xs-8"
+                                 ng-show="driver-signup.$submitted || driver-signup.firstName.$touched">
+                                <div ng-show="driver-signup.firstName.$error.required">
+                                    Please tell us your name!
+                                </div>
+                            </div>
+                            <span class="form-group truck-text">
+                                <input id="truck-lastName" type="text" name="lastName" ng-model="lastName"
+                                       class="driver-sign-up-input form-control" placeholder="Last Name"
+                                       title="Last Name" required/>
+                            </span>
+                            <span class="form-group truck-email">
+                                 <input id="truck-email" type="email" name="email" ng-model="email"
+                                        class="driver-sign-up-input form-control" placeholder="E-mail Address"
+                                        title="E-mail Address" required ng-change="emailChanged()"/>
+                            </span>
+                            <span class="sign-up-errors" ng-show="emailError">{{emailError}}</span>
+                              <span class="form-group truck-password">
+                                  <input type="password" name="password" id="password" ng-model="credentials.password"
+                                         ng-model="password" ng-model-options="{allowInvalid: true}"
+                                         pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})"
+                                         class="driver-sign-up-input form-control" placeholder="Password" required/>
+                                  <password-strength ng-model="credentials.password"></password-strength>
+                                
+                              </span>
+                            <span class="form-group truck-password">
+                             <input type="password" name="verifyPassword" id="verifyPassword"
+                                    ng-model="verifyPassword" placeholder="Verify Password"
+                                    class="form-control driver-sign-up-input" title="Verify Password"
+                                    onchange="checkPasswordMatch();" required/>
+                             <span id="marker"></span>
+                                
+                            </span>
+                            <span class="form-group truck-number">
+                                 <input id="truck-phone" type="number" name="phone" ng-model="phone"
+                                        class="driver-sign-up-input form-control" placeholder="Phone Number"
+                                        title="Enter Phone Number" required/>
+                            </span>
+                             <span class="form-group driver-sign-up-input">
+                                     <input id="truck-ssn" type="text" name="ssn" ng-model="ssn"
+                                            class="driver-sign-up-input form-control"
+                                            placeholder="Social Security Number"
+                                            title="Enter Social Security Number" required/>
+                            </span>
+                            <span class="form-group">
+                                <button kendo-button id="next" class="driver-sign-up-button driver-sign-up-input" ng-click="nextTab()">Next</button>
+                            </span>
+                        </div>
+
+                        <div>
+                           <span class="form-group">
+                                 <input id="truck-truck-manufacturer" type="text" name="Truck Manufacturer"
+                                        ng-model="truckManufacturer"
+                                        class="form-control driver-sign-up-input" placeholder="Truck Manufacturer"
+                                        title="Enter Truck Manufacturer" required/>
+                            </span>
+                            <span class="form-group">
+                                 <input id="truck-truck-model" type="text" name="Truck Model" ng-model="truckModel"
+                                        class="form-control driver-sign-up-input" placeholder="Truck Model"
+                                        title="Enter Truck Model" required/>
+                            </span>
+                           <span class="form-group">
+                                 <textarea id="truck-address" name="address" ng-model="address"
+                                           class="form-control driver-sign-up-input" placeholder="Enter Address"
+                                           title="Enter Address" required></textarea>
+                            </span>
+                            <span class="form-group">
+                                <select id="truck-state" ng-model="state" kendo-drop-down-list style="width: 28rem;"
+                                        placeholder='State' k-options="USStatesOptions" >
+                                </select>
+                            </span>
+                            
+                            <span class="form-group">
+                                 <input id="truck-city" type="text" name="city" ng-model="city"
+                                        class="form-control driver-sign-up-input" placeholder="City"
+                                        title="Enter City" required/>
+                            </span>
+                            <span class="form-group">
+                                 <input id="truck-zipcode" type="text" name="zipcode" ng-model="zipcode"
+                                        class="form-control driver-sign-up-input" placeholder="Zip Code"
+                                        title="Enter zip code" required/>
+                            </span>
+                            <span class="form-group">
+                                <button kendo-button id="signup" class="driver-sign-up-button driver-sign-up-input" ng-click="signup()">Sign Up!</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script id="notificationTemplate" type="text/x-kendo-template">
+            <p style="width: 16em; padding:1em;white-space:nowrap;color:white"> {{ngValue}} #= kValue # </p>
+        </script>
+        <span kendo-notification="errorNotification" k-options="notf1Options"></span>
+    </div>
+</div>

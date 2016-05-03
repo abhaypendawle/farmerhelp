@@ -1,0 +1,101 @@
+<div id = "content" class = "container">
+    <div id = "registration" class = "area">        <h1 style="font-size: 2.5rem">Create New Farmer Account</h1>
+
+        <div class="demo-section k-content">
+            <form data-toggle="validator">
+                <div kendo-tab-strip k-content-urls="[ null, null]">
+                    <ul>
+                        <li class="k-state-active">Personal Information</li>
+                        <li>General Information</li>
+                        <!--
+                        <li>Credit Card Information</li>
+                        -->
+                    </ul>
+                    <div>
+                            <span class="form-group customer-text">
+                                <input id="customer-firstName" type="text" name="firstName" ng-model="firstName" class="form-control" placeholder="First Name"
+                                       title="First Name" /><br><br>
+                            </span>
+                            <span class="form-group customer-text">
+                                <input id="customer-lastName" type="text" name="lastName" ng-model="lastName" class="form-control" placeholder="Last Name"
+                                       title="Last Name" /><br><br>
+                            </span>
+                            <span class="form-group customer-email">
+                                 <input id="customer-email" type="email" name="email" ng-model="email" class="form-control" placeholder="E-mail Address"
+                                        title="E-mail Address" /><br><br>
+                            </span>
+                              <span class="form-group customer-password">
+                                  <input type="password" name="customer-password" id="password" ng-model="credentials.password" ng-model="password" ng-model-options="{allowInvalid: true}" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" class="form-control" placeholder="Password" />
+                                  <password-strength ng-model="credentials.password"></password-strength>
+                                <br>
+                              </span>
+                            <span class="form-group customer-password">
+                             <input type="password" name="verifyPassword" id = "verifyPassword" ng-model="verifyPassword" placeholder="Verify Password"
+                                    class="form-control" title="Verify Password" />
+                             <span id = "marker"></span><br><br>
+                            </span>
+                    </div>
+
+                    <div>
+                           <span class="form-group customer-address">
+                                 <textarea id="customer-address" name="address" ng-model="address" class="form-control" placeholder="Enter Address"
+                                           title="Enter Address" ></textarea><br><br>
+                            </span>
+                            <span class="form-group customer-state">
+                                <select id="customer-state" ng-model="state" kendo-drop-down-list  style="width: 28rem;"  placeholder='State'
+                                        k-options="USStatesOptions">
+                                </select>
+                            </span>
+                        <br><br>
+                            <span class="form-group customer-city">
+                                 <input id="customer-city" type="text" name="city" ng-model="city" class="form-control" placeholder="City"
+                                        title="Enter City" />
+                            </span><br><br>
+                            <span class="form-group customer-zipcode">
+                                 <input id="customer-zipcode" type="text" name="zipcode" ng-model="zipcode" class="form-control" placeholder="ZipCode"
+                                        title="Enter zipcode" />
+                            </span><br><br>
+                            <span class="form-group customer-number">
+                                 <input id="customer-phone" type="number" name="phone" ng-model="phone" class="form-control" placeholder="Phone Number"
+                                        title="Enter Phone Number" />
+                            </span><br><br>
+                             <span class="form-group customer-ssn">
+                                     <input id="customer-ssn" type="text" name="ssn" ng-model="ssn" class="form-control" placeholder="Social Security Number"
+                                            title="Enter Social Security Number" />
+                            </span><br><br>
+                            <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="signup()">Sign Up!</button>
+                            </span>
+                    </div>
+
+                    <div>
+                        <div class="card-wrapper"></div>
+                        <form>
+                            <span class="form-group customer-cardName">
+                                 <input id="customer-cardName" type="text" name="name" ng-model="cardName" class="form-control"
+                                        placeholder="Credit Card Name" title="Enter Phone Number" />
+                                <span class="form-group customer-cardNumber">
+                                 <input id="customer-cardNumber" type="text" name="number" ng-model="cardNumber"
+                                        class="form-control"  placeholder="Credit Card Number" title="Enter Card Number" />
+                                </span>
+                            </span><br><br>
+
+                             <span class="form-group customer-expiry">
+                                    <input id="customer-expiry" type="text" name="expiry" ng-model="expiry"
+                                           class="form-control"  placeholder="MM/YY" title="Enter Expiry Details"/>
+                                 <span class="form-group customer-cvc">
+                                     <input id="customer-cvc" type="text" name="cvc" ng-model="cvc"
+                                            class="form-control"  placeholder="CVC" title="Enter CVC Details"/>
+                                </span><br><br>
+                            </span><br><br>
+                                <span class="form-group">
+                                <button kendo-button id="CustomerSignup" class="driver-sign-up-button driver-sign-up-input" ng-click="signup()">Sign Up!</button>
+                            </span>
+                        </form>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

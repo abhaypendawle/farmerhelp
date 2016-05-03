@@ -1,0 +1,161 @@
+<div id = "AdminSidePanel" style="margin-top: -16rem !important;">
+    <div id = "userbox">
+        <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
+        <span id = "admin-name">
+            <button style="background-color: transparent; border: none" class="dropdown-toggle" data-toggle="dropdown" type="button" >
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                </ul>
+            </button>
+        </span>
+    </div>
+
+    <ul style="list-style: none" class = "sidebar-nav">
+        <li><a ng-click = "goToHome()">Home</a></li>
+        <!--<li><a  ng-click="getPendingCustomers()">Customers &nbsp <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male-24.png" />
+        </a><span style="margin-left: 12rem" class="notification">{{ custlength }}</span></li>-->
+        <li><a  ng-click = "getPendingProducts()">Products &nbsp <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-31-24.png" />
+        </a><span style="margin-left: 11.2rem" class="notification">{{prodlength }}</span></li>
+        <li><a ng-click="getPendingFarmers()">Farmers &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification">{{farmlength}}</span></li>
+        <li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
+        </a></li>
+    </ul>
+</div>
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 1 || variable == 2 || variable == 3">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in data.data">
+        <div class="col-sm-8">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 2"> {{ value.firstName}} {{value.lastName}}</label>
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;" ng-show = "abcd == 1"> {{ value.productName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="confirmButton" type="button" class="btn btn-primary" ng-click = "approveReq(value.ssn,value.productName,value.usertype)">Confirm</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Decline</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="pending-request-wrapper col-md-8 col-md-offset-4" ng-show = "variable == 4">
+    <div  class = "pending-request-row container col-md-8" ng-repeat = "value in farmerResult">
+        <div class="col-sm-5">
+            <label style="font-size: 2rem; color: floralwhite;margin-top: 3.5rem;"> {{ value.firstName}} {{value.lastName}}</label>
+        </div>
+        <div class="col-sm-2">
+            <button id="updateItem" type="button" class="btn btn-primary" ng-click = "farmerupdatepopup.center().open()" ng-show="!popupvisible">Update</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="viewItem" type="button" class="btn btn-primary" ng-click = "farmerpopup.center().open()" ng-show="!popupvisible">View</button>
+        </div>
+        <div class="col-sm-2">
+            <button id="deleteButton" type="button" class="btn btn-danger" ng-click = "declineReq(value.ssn,value.productName,value.usertype)">Delete</button>
+        </div>
+
+        <div kendo-window = "farmerpopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewFarmerInfo(value.ssn);" k-on-close="popupvisible = false">
+        <div class="row">
+           <div class="col-md-4 col-sm-4"> <label>First Name</label></div>
+            <div class="col-md-1 col-sm-1"><label> {{ res.firstName}}</label></div>
+        </div>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-4"><label>Last Name</label></div>
+                <div class="col-md-1 col-sm-1"> <label>{{ res.lastName}}</label></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4"><label>Email</label></div>
+                <div class="col-md-1 col-sm-1"><label>{{res.email }}</label></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4"><label>Phone Number</label></div>
+                <div class="col-md-1 col-sm-1"> <label>{{res.phoneNumber }}</label></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4"><label>Social Security Number</label></div>
+                <div class="col-md-3 col-sm-3"><label>{{ res.ssn}}</label></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4"><label>Address</label></div>
+                <div class="col-md-2 col-sm-2"><label>{{ res.address}}</label></div>
+              </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4"><label>City</label></div>
+                <div class="col-md-2 col-sm-2"><label>{{res.city }}</label></div>
+            </div>
+
+               <div class="row">
+                   <div class="col-md-4 col-sm-4"><label>State</label></div>
+                   <div class="col-md-1 col-sm-1"><label>{{ res.state}}</label></div>
+              </div>
+
+              <div class="row">
+                   <div class="col-md-4 col-sm-4"><label>Zip code</label></div>
+                   <div class="col-md-1 col-sm-1"><label>{{ res.zipCode}}</label></div>
+              </div>
+        </div>
+
+        <div kendo-window = "farmerupdatepopup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; viewFarmerInfo(value.ssn);" k-on-close="popupvisible = false">
+          <div class="container" style="width: 100%">
+            <div class="row">
+              <div class="col-sm-4 col-md-4"><label>First Name</label></div>
+                  <div class="col-sm-1 col-md-1"><input name = "firstName" ng-model= res.firstName /></div>
+
+            </div>
+            <div class="row">
+                  <div class="col-sm-4 col-md-4" ><label>Last Name</label></div>
+                  <div class="col-sm-1 col-md-1"><input name = "lastName" ng-model= res.lastName /></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Email</label></div>
+                    <div class="col-sm-1 col-md-1">    <input name = "email" ng-model= res.email  /></div>
+           </div>
+
+                <div class="row">
+                <div class="col-sm-4 col-md-4"><label>Phone Number</label></div>
+                    <div class="col-sm-1 col-md-1"> <input name = "phoneNumber" ng-model= res.phoneNumber /></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4"><label>Social Security Number</label></div>
+                        <div class="col-sm-1 col-md-1"> <input name = "ssn" ng-model= res.ssn /></div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-4 col-md-4"><label>Address</label></div>
+                    <div class="col-sm-1 col-md-1">  <input name = "address" ng-model= res.address /></div>
+                </div>
+                <div class="row">
+                            <div class="col-sm-4 col-md-4"><label>City</label></div>
+                    <div class="col-sm-1 col-md-1"><input name = "city" ng-model= res.city /></div>
+                </div>
+                <div class="row">
+                                <div class="col-sm-4 col-md-4"> <label>State</label></div>
+                    <div class="col-sm-1 col-md-1"><input name = "state" ng-model= res.state /></div>
+                </div>
+                <div class="row">
+                                    <div class="col-sm-4 col-md-4"> <label>Zip code</label></div>
+                    <div class="col-sm-1 col-md-1"><input name = "zipCode" ng-model= res.zipCode /></div>
+                    </div>
+            <div class="row">
+            <div><button id="updatebutton" type="button" class="btn btn-primary" ng-click = "updateInfoFarmer()" style="margin-left: 50rem !important">Update</button></div>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+</div>
+
+

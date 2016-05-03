@@ -1,0 +1,90 @@
+<div>
+    <div class="container">
+        <h3 class="trip-details-heading">Track Your Package</h3>
+        <div class="google-maps-wrapper-div col-md-8">
+            <ng-map zoom="14" class='google-map' center={{tripDetails.origin}}>
+                <directions
+                        draggable="true"
+                        travel-mode="DRIVING"
+                        origin="{{tripDetails.origin}}"
+                        destination="{{tripDetails.destination}}">
+                </directions>
+                <custom-marker ng-repeat="cm in customMarkers" position="{{cm.address}}">
+                    <div class="google-maps-custom-marker">
+                        <div> {{cm.title}}</div>
+                        <div> {{cm.name}}</div>
+                        <div> {{cm.address}}</div>
+                    </div>
+                </custom-marker>
+            </ng-map>
+        </div>
+        <div class="trip-details-wrapper-div col-md-3" ng-show="tripDetails">
+            <div class="container trip-details-container-div">
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Product:
+                    </div>
+                    <div class="col-md-5">
+                        {{tripDetails.productName}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Farmer:
+                    </div>
+                    <div class="col-md-5">
+                        {{tripDetails.farmerFirstName + " " + tripDetails.farmerLastName}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Origin:
+                    </div>
+                    <div class="col-md-5">
+                        {{tripDetails.origin}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Destination:
+                    </div>
+                    <div class="col-md-5">
+                        {{tripDetails.destination}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Order Date:
+                    </div>
+                    <div class="col-md-5">
+                        {{orderDateString}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Expected Delivery Date:
+                    </div>
+                    <div class="col-md-5">
+                        {{expectedDeliveryDateString}}
+                    </div>
+                </div>
+                <br>
+                <div class="trip-details-row">
+                    <div class="col-md-5">
+                        Delivery Status:
+                    </div>
+                    <div class="col-md-5">
+                        {{deliveryStatus}}
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

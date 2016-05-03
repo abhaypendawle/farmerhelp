@@ -1,0 +1,35 @@
+<div class="container">
+    <div class = "col-sm-4 col-md-4"></div>
+    <div class = "col-sm-4 col-md-4"></div>
+    <div class="login-div col-md-4 col-md-4">
+        <div class="login-form-wrapper">
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ng-model="email" class="form-control" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" ng-model="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group sign-in-button-wrapper">
+                    <button type="submit" ng-click="login()" class="btn btn-success sign-in-button">Sign In</button>
+                </div>
+                <span class="auth-error">{{error}}</span>
+            </form>
+            <span class="sign-up-prompt-span">
+
+                New customer?
+                <a href="#" id="link">Create a new Farmer Help account</a>
+            </span>
+        </div>
+        <div class="login-footer" >
+            <span class="sign-up-prompt-span pull-left"  ng-click="redirectToFarmerSignUp()" style="background-color: #ffe87c; font-weight: bold">
+                Farmers Sign up Here!
+            </span>
+            <!--<span class="sign-up-prompt-span pull-right" ng-click="redirectToDriverSignUp()">
+                Drive for Farmer Help.com
+            </span>-->
+        </div>
+    </div>
+</div>
