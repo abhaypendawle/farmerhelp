@@ -1,4 +1,4 @@
-<div id = "AdminSidePanel">
+<div id = "AdminSidePanel" style="margin-top: -5rem">
     <div id = "userbox">
         <img style="margin-left: 2rem; margin-top: 4rem" src="https://cdn3.iconfinder.com/data/icons/basic-interface/100/user_man-64.png" />
         <span id = "admin-name">
@@ -18,9 +18,31 @@
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="getAllFarmers()">My Products &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification">{{farmlength}}</span></li>
+        <li><a ng-click="showTweets()">Farmer Feed <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification"></span></li>
         <!--<li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
         </a></li>-->
     </ul>
+</div>
+
+
+<div  ng-show="vari == 3" style="margin-top: -10rem">
+    <div class="container-fluid" id="tweetfield" style="margin-left: 50rem" >
+        <div class="" id="txt">
+            <form>
+                <textarea class="" rows="1" cols="50" ng-model="tweetValue" maxlength="140"  onfocus="this.rows=5;" style="resize:none;" onblur="this.rows=1;" id="txta"></textarea>
+                <button type="button" value="Tweet" id="tweet" ng-click = "insertTweet()"  style="margin-top: -5rem">POST</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div ng-repeat = "value in data" style="margin-left: 12rem;margin-top : 2rem" >
+    <div class = "userInfo"><span id ="name">{{ value.farmerName}}</span>
+        <div id="comments"> {{ value.tweetValue}} </div>
+    </div>
 </div>
 
 

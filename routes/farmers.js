@@ -145,4 +145,46 @@ router.post("/searchfarmpract", function (req, res)
     });
 });
 
+
+router.post("/postTweet", Auth.requireLogin, function (req, res) {
+    console.log("Here");
+    var user = req.session.user;
+    var promise = FarmerHandler.regtweet(req.body.info, user);
+    promise.done(function () {
+        res.send({
+            success: true,
+            error: null,
+            data: "Tweet Added successfully!"
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
+
+
+router.post("/getMyTweets", Auth.requireLogin, function (req, res) {
+    var promise = FarmerHandler.getAllTweets();
+    promise.done(function (tweetList) {
+        res.send({
+            success: true,
+            error: null,
+            data: tweetList
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
+
+
+
 module.exports = router;

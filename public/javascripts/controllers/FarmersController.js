@@ -40,6 +40,32 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
     }
 
 
+    $scope.insertTweet = function () {
+        var info = {
+            "tweetValue" : $scope.tweetValue
+        }
+        var promise = FarmerService.postTweet(info);
+        promise.then(function (result) {
+            alert("Success!");
+            $scope.showTweets();
+        }, function (error) {
+            alert("Error - " + error);
+        });
+
+    }
+
+
+    $scope.showTweets = function()
+    {
+        $scope.vari = 3;
+        var promise = FarmerService.getMyTweets();
+        promise.then(function (result) {
+            $scope.data = result.data.data;
+        }, function (error) {
+            alert("Error - " + error);
+        });
+    }
+
     $scope.regProduct = function ()
     {
         $scope.vari = 2;

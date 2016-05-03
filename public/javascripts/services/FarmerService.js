@@ -27,6 +27,27 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             return def.promise;
         },
 
+        getMyTweets : function () {
+            var url = "http://localhost:3000/farmers/getMyTweets";
+            var def = $q.defer();
+            $http({
+                method: 'POST',
+                url: url
+            }).then(function (data) {
+                if (data) {
+                    def.resolve(data);
+                } else {
+                    def.reject(data.data.error);
+                }
+            }, function (error) {
+                if(error.status === 302) {
+                    $window.location.href = "http://localhost:3000/#auth/login";
+                }
+                def.reject(error);
+            });
+            return def.promise;
+        },
+
 
         updateFarmerProfile : function (info) {
             var url = "http://farmerhelp.mybluemix.net/farmers/updateFarmer";
@@ -65,6 +86,27 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             }).then(function (data) {
                 if (data.data.success) {
                     $window.location.href = "http://farmerhelp.mybluemix.net/#auth/login";
+                    def.resolve();
+                } else {
+                    def.reject(data.data.error);
+                }
+            }, function (error) {
+                def.reject(error.data.error);
+            });
+            return def.promise;
+        },
+        postTweet: function (info) {
+            var url = "http://localhost:3000/farmers/postTweet";
+            var def = $q.defer();
+            $http({
+                method: 'POST',
+                url: url,
+                data: {
+                    "info": info
+                }
+            }).then(function (data) {
+                if (data.data.success) {
+                    //$window.location.href = "http://localhost:3000/#auth/login";
                     def.resolve();
                 } else {
                     def.reject(data.data.error);

@@ -19,6 +19,27 @@ body {
     background-size: cover;
 }
 
+
+.userInfo{
+    background-color: white;
+    margin-right: 550px;
+    margin-left: 316px;
+    padding-top: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 538px;
+    margin-top: 10px;
+    display: block;
+    height: 110px;
+    border-color: #e1e8ed;
+    margin-bottom: -9px;
+    line-height: 52px;
+    word-wrap: break-word;
+}
+#comments{
+    margin-top: -33px;
+}
+
 #nav {
     color: #fff;
     height: 45px;
@@ -78,6 +99,8 @@ h1 {
     height: 3rem !important;
     width: 114.047px;
 }
+
+
 
 .area {
     background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/omaha/images/categorypages/gradcx/seamless-white-line-unit-2._V383736962_.png);

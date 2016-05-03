@@ -166,6 +166,50 @@ exports.updateFarmer = function (info) {
 
 
 
+exports.regtweet = function (info, user) {
+    console.log("user is");
+    console.log(user);
+    var tweetID = Crypto.createHash('sha1').update(user.ssn + new Date().getTime()).digest('hex');
+    info.tweetID = tweetID;
+    info.farmerID = user.ssn;
+    info.farmerName = user.firstName + " " + user.lastName;
+    var deferred = Q.defer();
+    if (UserTypes.FARMER == user.usertype)
+    {
+        var cursor = MongoDB.collection("tweets").insert(info);
+        cursor.then(function (user) {
+            deferred.resolve(user);
+        }).catch(function (error) {
+            deferred.reject(error);
+        });
+    } else
+
+    {
+        deferred.reject("Not a farmer");
+    }
+    return deferred.promise;
+};
+
+
+exports.getAllTweets = function () {
+    var deferred = Q.defer();
+    var cursor = MongoDB.collection("tweets").find();
+    var farmerList = [];
+    cursor.each(function (err, doc) {
+        if (err) {
+            deferred.reject(err);
+        }
+        if (doc != null) {
+            farmerList.push(doc);
+        } else {
+            console.log(farmerList);
+            deferred.resolve(farmerList);
+        }
+    });
+    return deferred.promise;
+};
+
+
 _sanitizeFarmerInfo = function (info) {
     info.password = PasswordManager.encryptPassword(info.password);
     info.usertype = UserTypes.FARMER;
