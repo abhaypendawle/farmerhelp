@@ -215,7 +215,6 @@ exports.getAllTweets = function () {
 
 
 exports.createResource = function (info, user) {
-    console.log("In Resources");
     console.log(info);
     var resourceID = Crypto.createHash('sha1').update(info.resourceName + user.ssn + new Date().getTime()).digest('hex');
     info.resourceID = resourceID;
@@ -245,7 +244,7 @@ _sanitizeResourceInfo = function (info, user) {
     info.farmerFirstName = user.firstName;
     info.farmerLastName = user.lastName;
     info.farmerSSN = user.ssn;
-    info.isApproved = false;
+    info.isApproved = true;
     delete info.ssn;
     return info;
 }
