@@ -8,6 +8,8 @@ var PasswordManager = require("../authentication/passwordmanager");
 var Q = require("q");
 var UserTypes = require("../commons/constants").usertypes;
 var GoogleMaps = require("../commons/googlemapshandler");
+var Crypto = require("crypto");
+
 
 exports.createfarmer = function (info) {
     var deferred = Q.defer();
