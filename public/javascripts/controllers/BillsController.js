@@ -24,7 +24,7 @@ app.controller('BillsController',["$scope","$window","BillService",function ($sc
 
         var promise = BillService.generatebill(info);
         promise.then(function (result) {
-            alert("Success!");
+            //alert("Success!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -38,7 +38,7 @@ app.controller('BillsController',["$scope","$window","BillService",function ($sc
                     }
        var promise = BillService.addrating(info);
         promise.then(function (result) {
-            alert("Success!");
+            //alert("Success!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -47,7 +47,7 @@ app.controller('BillsController',["$scope","$window","BillService",function ($sc
     $scope.deletebill = function (billId) {
         var promise = BillService.deletebill(billId);
         promise.then(function (result) {
-            alert("Success!");
+            //alert("Success!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -63,7 +63,7 @@ app.controller('BillsController',["$scope","$window","BillService",function ($sc
     }
 
     $scope.getallbills = function () {
-        alert("")
+        //alert("")
         var promise = BillService.getallbills();
         promise.then(function (result) {
             $scope.result = result;
@@ -86,7 +86,7 @@ app.controller('BillsController',["$scope","$window","BillService",function ($sc
     }*/
 
     $scope.trackPackage = function(tripId){
-        alert(tripId);
+        //alert(tripId);
         var url = "/#trips/track/" + tripId;
         $window.location.href = url;
     }

@@ -100,7 +100,7 @@ app.controller('AdminController',["$scope", "$window", "$rootScope", "AdminServi
 
 
 	$scope.approveReq = function (ssn,productID,usertype) {
-		alert(productID);
+		//alert(productID);
 		var promise = AdminService.approveReq(ssn,productID);
 		promise.then(function (result) {
 			if (result == "f") {
@@ -146,7 +146,7 @@ app.controller('AdminController',["$scope", "$window", "$rootScope", "AdminServi
 	$scope.getPendingTrucks = function(){
 		var promise = AdminService.getPendingTrucks();
 		promise.then(function (result) {
-			alert("IN controller after result");
+			//alert("IN controller after result");
 			$scope.data = result.data;
 			$scope.abcd = 2;
 			$rootScope.trucklength = result.data.data.length;
@@ -223,7 +223,7 @@ app.controller('AdminController',["$scope", "$window", "$rootScope", "AdminServi
 	}
 
 	$scope.viewFarmerInfo = function(ssn){
-	alert(ssn);
+	//alert(ssn);
 		var info = {
 			"ssn" : ssn
 		}
@@ -394,7 +394,7 @@ app.controller('AdminController',["$scope", "$window", "$rootScope", "AdminServi
 	}
 
 	$scope.viewCustomerInfo = function(ssn){
-		alert(ssn);
+		//alert(ssn);
 		var info = {
 			"ssn" : ssn
 		}

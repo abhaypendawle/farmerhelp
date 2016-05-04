@@ -65,7 +65,7 @@ angular.module("farmerhelp").factory("BillService",["$http","$q","$window", func
                 if (data.status==204) {
                     def.resolve();
                 } else {
-                    alert("ala error")
+                    //alert("ala error")
                     def.reject(data.data.error);
                 }
             }, function (error) {
@@ -101,7 +101,7 @@ angular.module("farmerhelp").factory("BillService",["$http","$q","$window", func
         },
 
         getallbills: function () {
-            alert();
+            //alert();
             var url = "http://farmerhelp.mybluemix.net/bills/getallbills/";
             var def = $q.defer();
             $http({

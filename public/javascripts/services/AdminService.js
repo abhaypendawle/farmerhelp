@@ -53,7 +53,7 @@ angular.module("farmerhelp").factory("AdminService",["$window","$http","$q", fun
         },
 
          getPendingTrucks : function () {
-             alert("In trucks");
+             //alert("In trucks");
              var url = "http://farmerhelp.mybluemix.net/trucks/pending";
              var def = $q.defer();
              $http({
@@ -137,7 +137,7 @@ angular.module("farmerhelp").factory("AdminService",["$window","$http","$q", fun
         },
 
         getTrucksByAdvancedSearch : function(info){
-            alert("In getrucks by sreach ");
+            //alert("In getrucks by sreach ");
             var url = "http://farmerhelp.mybluemix.net/trucks/search";
             var def = $q.defer();
             $http({
@@ -253,7 +253,7 @@ angular.module("farmerhelp").factory("AdminService",["$window","$http","$q", fun
         },
 
         updateProductInfo:function(info){
-            alert("In admin service");
+            //alert("In admin service");
             var url = "http://farmerhelp.mybluemix.net/products";
             var def = $q.defer();
             $http({
@@ -276,7 +276,7 @@ angular.module("farmerhelp").factory("AdminService",["$window","$http","$q", fun
 
 
         updateTruckInfo : function(info){
-            alert("URL is http://farmerhelp.mybluemix.net/trucks/updateTruck");
+            //alert("URL is http://farmerhelp.mybluemix.net/trucks/updateTruck");
             var url = "http://farmerhelp.mybluemix.net/trucks/updateTruck";
             var def = $q.defer();
             $http({
@@ -321,7 +321,7 @@ angular.module("farmerhelp").factory("AdminService",["$window","$http","$q", fun
         },
         tripsInfo : function()
         {
-            alert("in service trips info");
+            //alert("in service trips info");
             var url = "http://farmerhelp.mybluemix.net/trips";
             var def = $q.defer();
             $http({

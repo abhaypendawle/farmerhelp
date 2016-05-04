@@ -52,7 +52,7 @@ app.controller('CustomersController',["$scope","US_STATES","CustomerService","Va
         {
             var promise = CustomerService.signup(info);
             promise.then(function (result) {
-                alert("Success!");
+                alert("Customer Created Successfully!");
             }, function (error) {
                 alert("Error - " + error);
             });

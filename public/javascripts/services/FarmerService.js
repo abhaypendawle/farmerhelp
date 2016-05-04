@@ -3,7 +3,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
     var FarmerService = {
 
         getMyProfile : function () {
-            alert("Reached Here");
+            //alert("Reached Here");
             var url = "http://farmerhelp.mybluemix.net/farmers/111-11-9910";
             var def = $q.defer();
             $http({
@@ -48,7 +48,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             return def.promise;
         },
         requestNewResource: function (info) {
-            alert("Reached Here");
+            //alert("Reached Here");
             var url = "http://farmerhelp.mybluemix.net/farmers/requestResource";
             var def = $q.defer();
             $http({
@@ -74,7 +74,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
         },
 
         getWhoReqMyResource : function () {
-            alert("Here also reached");
+            //alert("Here also reached");
             var url = "http://farmerhelp.mybluemix.net/farmers/getWhoReqMyResource";
             var def = $q.defer();
             $http({
@@ -213,7 +213,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
 
         getUrl : function (info) {
             var url = "http://farmerhelp.mybluemix.net/farmers/searchfarmpract";
-            alert(info.type);
+            //alert(info.type);
             var def = $q.defer();
             $http({
                 method: 'POST',

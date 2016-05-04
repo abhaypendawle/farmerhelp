@@ -18,7 +18,7 @@ angular.module("farmerhelp").controller("ProductController", ["$scope", "$window
 		}
 		var promise = ProductService.createproduct(info);
 		promise.then(function (result) {
-			alert("Success!");
+			alert("Product has been added successfully!");
 		}, function (error) {
 			alert("Error - " + error);
 		});
@@ -39,7 +39,7 @@ angular.module("farmerhelp").controller("ProductController", ["$scope", "$window
 	$scope.deleteproduct = function (productID) {
 		var promise = ProductService.deleteproduct(productID);
 		promise.then(function (result) {
-			alert("Success!");
+			alert("product has been deleted successfully!");
 		}, function (error) {
 			alert("Error" + error);
 		});
@@ -67,7 +67,7 @@ angular.module("farmerhelp").controller("ProductController", ["$scope", "$window
 			$scope.cart = cart;
 			extractCartItems();
 		}).catch(function (error) {
-			alert("Ooops! I'm so embarrassed that I can't complete your request! " + error);
+			alert("Error " + error);
 		});
 	}
 
@@ -97,7 +97,7 @@ angular.module("farmerhelp").controller("ProductController", ["$scope", "$window
 				alert("Ooops! something went terribly wrong! " + error);
 			});
 		}).catch(function (error) {
-			alert("Ooops! Something went terribly wrong! No Cheesecake for you today! :P");
+			alert("Error");
 		});
 	}
 	init();

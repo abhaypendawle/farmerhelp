@@ -268,7 +268,7 @@ app.controller("AnalyticsController",["$scope","$window","$q","AnalyticsService"
 			if(error.status === 302) {
 				$window.location.href = "http://farmerhelp.mybluemix.net/auth/login";
 			}
-			alert("Oops! Something went terribly wrong! ");
+			//alert("Oops! Something went terribly wrong! ");
 		});
 
 		/**

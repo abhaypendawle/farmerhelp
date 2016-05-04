@@ -33,7 +33,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         }
         var promise = FarmerService.signup(info);
         promise.then(function (result) {
-            alert("Success!");
+            alert("Farmer Created Successfully!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -46,7 +46,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         }
         var promise = FarmerService.postTweet(info);
         promise.then(function (result) {
-            alert("Success!");
+            //alert("Success!");
             $scope.showTweets();
         }, function (error) {
             alert("Error - " + error);
@@ -81,7 +81,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         $scope.vari = 1;
         var promise = FarmerService.getMyProfile();
         promise.then(function (result) {
-            alert(result.data.data.password);
+            //alert(result.data.data.password);
             $scope.data = result.data.data;
             $scope.abcd = 2;
             $scope.farmlength = result.data.data.length;
@@ -141,7 +141,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         }
         var promise = ProductService.createproduct(info);
         promise.then(function (result) {
-            alert("Success!");
+            alert("Product Added Successfully!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -159,7 +159,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         }
         var promise = FarmerService.createresource(info);
         promise.then(function (result) {
-            alert("Success!");
+            alert("Resource Added Successfully!");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -178,7 +178,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
 
     $scope.requestNewResource = function (ownerSSN,ownerFirstName,ownerLastName,resourceName,resourceID) {
-        alert("Alerting Here is done");
+        //alert("Alerting Here is done");
         var info = {
             "ownerSSN": ownerSSN,
             "ownerName": ownerFirstName + " " + ownerLastName,
@@ -187,7 +187,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         }
         var promise = FarmerService.requestNewResource(info);
         promise.then(function (result) {
-            alert("Success!");
+            alert("Request has been recorded");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -196,11 +196,11 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
     $scope.getWhoReqMyResource = function()
     {
-        alert("someone here");
+        //alert("someone here");
         $scope.vari = 10;
         var promise = FarmerService.getWhoReqMyResource();
         promise.then(function (result) {
-            alert(result);
+            //alert(result);
             $scope.res = result.data.data;
         }, function (error) {
             alert("Error - " + error);
@@ -212,7 +212,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
     $scope.getUrl = function()
     {
 
-        alert("in resource");
+        //alert("in resource");
         $scope.vari = 5;
         var info = {
             "type" : $scope.searchText
@@ -221,7 +221,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         promise.then(function (result) {
             $scope.result = result.data.data;
             //alert($scope.result1)
-            alert("Success");
+            //alert("Success");
         }, function (error) {
             alert("Error - " + error);
         });
@@ -230,14 +230,14 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
     $scope.videos = function()
     {
-        alert("in videos");
+        //alert("in videos");
         $scope.vari = 7;
 
     }
 
     $scope.searchvideo = function()
     {
-        alert("in videos");
+        //alert("in videos");
         $scope.vari = 8;
 
     }
