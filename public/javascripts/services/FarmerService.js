@@ -143,7 +143,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
         },
 
         getUrl : function (info) {
-            var url = "http://localhost:3000/farmers/searchfarmpract";
+            var url = "http://farmerhelp.mybluemix.net/farmers/searchfarmpract";
             alert(info.type);
             var def = $q.defer();
             $http({
@@ -158,7 +158,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
                 }
             }, function (error) {
                 if(error.status === 302) {
-                    $window.location.href = "http://localhost:3000/#auth/login";
+                    $window.location.href = "http://farmerhelp.mybluemix.net/#auth/login";
                 }
                 def.reject(error);
             });
