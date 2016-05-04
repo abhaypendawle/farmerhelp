@@ -112,6 +112,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
             "city": $scope.data.city,
             "zipCode": $scope.data.zipCode,
             "usertype" : $scope.data.usertype,
+            "isApproved" :$scope.data.isApproved,
             "rating" : $scope.data.rating,
             "reviews" : $scope.data.reviews,
             "location" : $scope.data.location
