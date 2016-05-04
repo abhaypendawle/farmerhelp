@@ -289,7 +289,7 @@ exports.searchfarmpract = function (info) {
     var deferred = Q.defer();
     var info = JSON.parse(info);
     console.log("Data is" + info);
-    var cursor = MongoDB.collection("farmpract").find({"type": "tomato"});
+    var cursor = MongoDB.collection("farmpract").find({"type": info});
     var farmerList = [];
     cursor.each(function (err, doc) {
         if (err) {

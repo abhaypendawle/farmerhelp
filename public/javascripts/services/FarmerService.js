@@ -178,7 +178,7 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
                 }
             }).then(function (data) {
                 if (data.data.success) {
-                    //$window.location.href = "http://localhost:3000/#auth/login";
+                    //$window.location.href = "http://farmerhelp.mybluemix.net/#auth/login";
                     def.resolve();
                 } else {
                     def.reject(data.data.error);

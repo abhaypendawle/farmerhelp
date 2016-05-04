@@ -198,7 +198,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         alert("in resource");
         $scope.vari = 5;
         var info = {
-            "type" : "tomato"
+            "type" : $scope.searchText
         }
         var promise = FarmerService.getUrl(info);
         promise.then(function (result) {
@@ -218,6 +218,12 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
     }
 
+    $scope.searchvideo = function()
+    {
+        alert("in videos");
+        $scope.vari = 8;
+
+    }
 
 }]);
 
