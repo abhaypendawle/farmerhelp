@@ -73,17 +73,17 @@
             <hr class="product-list-cart-hr">
             <div class="product-list-cart-items" ng-repeat="cartItem in cartList">
                 <div class="product-list-single-item container">
-                    <div class="product-list-single-item-name col-md-4 product-list-individual-namune">
+                    <div class="product-list-single-item-name col-md-3 product-list-individual-namune">
                         {{cartItem.productName}}
                     </div>
                     <div class="product-list-single-item-quantity col-md-2 product-list-individual-namune">
                         <input type="number" ng-model="cartItem.quantity" />
                     </div>
                     <div class="product-list-single-item-name col-md-2 product-list-individual-namune">
-                        ${{cartItem.productPrice}}
+                        Rs{{cartItem.productPrice}}
                     </div>
-                    <div class="product-list-single-item-quantity col-md-2 end-list product-list-individual-namune">
-                        $ {{cartItem.quantity * cartItem.productPrice}}
+                    <div class="product-list-single-item-quantity col-md-3 end-list product-list-individual-namune">
+                        Rs{{cartItem.quantity * cartItem.productPrice}}
                     </div>
                 </div>
             </div>
