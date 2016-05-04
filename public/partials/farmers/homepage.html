@@ -58,14 +58,16 @@
 
 <!--GET RESOURCES-->
 <div  ng-show = "vari==6">
-    <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
-        <div class = "userInfo"><span id ="name">{{ value.farmerFirstName}}  {{value.farmerLastName}}</span>
-            <div id="comments"> {{ value.resourceName}} </div>
-            <div id = "retweetButton"><a ng-click = "requestNewResource(value.farmerSSN,value.farmerFirstName,value.farmerLastName,value.resourceName,value.resourceID)" class="pull-right">Request This Resource</a></div>
-        </div>
+    <div class = "userInfo" ng-repeat = "value in res" style="margin-left: 35rem;margin-top : 2rem" >
+        <div class="left col-sm-3" ><span >Owned By:<br>{{ value.farmerFirstName}}  {{value.farmerLastName}}</span></div>
+        <div class="mid col-sm-3" >Resource Name: <br>{{ value.resourceName}} </div>
+        <img class="midleft col-sm-3" src="{{value.resourceImage}}"></img>
+        <div class="right col-sm-3" ><a ng-click = "requestNewResource(value.farmerSSN,value.farmerFirstName,value.farmerLastName,value.resourceName,value.resourceID)" >Request Resource</a></div>
+
     </div>
 </div>
 <!--END GET RESOURCES-->
+
 <!--GET WHO REQUESTED MY RESOURCES-->
 <div  ng-show = "vari==10">
     <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
