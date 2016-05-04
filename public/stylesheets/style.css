@@ -919,6 +919,23 @@ Shruti's classes.
     padding: 0 !important;
     width: 30% !important;
 }
+/* Pricetrends*/
+#pricetrends:hover{
+    background-color: red ;
+}
+#pricetrends{
+    color: snow;
+    cursor: pointer;
+    height: 32px;
+    margin-top: 7px;
+    margin-right: 50px;
+    opacity: 0.75;
+    -ms-filter: "alpha(opacity=80)";
+    padding: 0 7px 0 8px;
+    background-color: transparent;
+    /* background: rgba(0,132,180,.8); */
+    border-radius: 5px;
+}
 
 .product-list-cart-cart-heading {
     text-align: center;
