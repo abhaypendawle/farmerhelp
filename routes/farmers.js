@@ -226,4 +226,26 @@ router.post("/getMyResources", Auth.requireLogin, function (req, res) {
 });
 
 
+
+router.post("/requestResource", Auth.requireLogin, function (req, res) {
+    console.log("Here");
+    var user = req.session.user;
+    var promise = FarmerHandler.ResourceRequest(req.body.info, user);
+    promise.done(function () {
+        res.send({
+            success: true,
+            error: null,
+            data: "Resource Request Added successfully!"
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
+
+
 module.exports = router;

@@ -59,7 +59,7 @@
     <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
         <div class = "userInfo"><span id ="name">{{ value.farmerFirstName}}  {{value.farmerLastName}}</span>
             <div id="comments"> {{ value.resourceName}} </div>
-            <div id = "retweetButton"><a ng-click = "retweet(value.tweet_text,value.twitter_handle)" class="pull-right">Request This Resource</a></div>
+            <div id = "retweetButton"><a ng-click = "requestNewResource(value.farmerSSN,value.farmerFirstName,value.farmerLastName)" class="pull-right">Request This Resource</a></div>
         </div>
     </div>
 </div>

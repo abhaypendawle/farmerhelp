@@ -259,6 +259,32 @@ exports.getAllResources = function () {
 };
 
 
+
+exports.ResourceRequest = function (info, user) {
+    console.log(info);
+    var tweetID = Crypto.createHash('sha1').update(user.ssn + new Date().getTime()).digest('hex');
+    info.reqID = tweetID;
+    info.reqfarmer = user.ssn;
+    info.isApproved = false;
+
+    var deferred = Q.defer();
+    if (UserTypes.FARMER == user.usertype)
+    {
+        var cursor = MongoDB.collection("reqresource").insert(info);
+        cursor.then(function (user) {
+            deferred.resolve(user);
+        }).catch(function (error) {
+            deferred.reject(error);
+        });
+    } else
+
+    {
+        deferred.reject("Not a farmer");
+    }
+    return deferred.promise;
+};
+
+
 exports.searchfarmpract = function (info) {
     var deferred = Q.defer();
     var info = JSON.parse(info);

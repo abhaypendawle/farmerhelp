@@ -177,6 +177,20 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
     }
 
 
+    $scope.requestNewResource = function (ownerSSN,ownerFirstName,ownerLastName) {
+        alert("Alerting Here is done");
+        var info = {
+            "ownerSSN": ownerSSN,
+            "ownerName": ownerFirstName + " " + ownerLastName
+        }
+        var promise = FarmerService.requestNewResource(info);
+        promise.then(function (result) {
+            alert("Success!");
+        }, function (error) {
+            alert("Error - " + error);
+        });
+    }
+
 
     $scope.getUrl = function()
     {
