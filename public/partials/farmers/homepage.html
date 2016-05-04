@@ -51,16 +51,16 @@
     </div>
 
 
-<div class = "searchdiv ">
+<!--<div class = "searchdiv ">
     <input id = "searchAdmin" type="text" placeholder="Search" ng-model = "searchText" />
     <button id="searchButton" type="button">
         <img style="height: 16px; width: 16px" src="https://cdn2.iconfinder.com/data/icons/kailoon/myicon/search.png" /></button>
     <a style="text-decoration: none" id="advanced-search" ng-click = "popup.center().open()" ng-show="!popupvisible">Advanced Search</a>
-</div>
+</div>-->
 
 <div class="admin-advanced-search-window" kendo-window = "popup" k-options="advancedSearchWindowOptions" k-on-open = "popupvisible = true; onAdvancedSearchWindowOpen();" k-on-close="popupvisible = false">
 
-    <div class="container admin-advanced-search-window-container">
+    <!--<div class="container admin-advanced-search-window-container">
         <div class = "col-md-4 form-group dropdown">
             <label style="margin-left: 14rem">Search</label>
             <select  style="margin-left: 20rem;margin-top: -4rem;" kendo-drop-down-list = "typeSelectionList" required ng-model = "type" >
@@ -70,7 +70,7 @@
                 <option oi-options value = "Trips">Trips</option>
             </select>
         </div>
-    </div>
+    </div>-->
 
     <div id = "Customers" ng-if= "type == 'Customers'">
         <div class="container admin-advanced-search-window-container">
