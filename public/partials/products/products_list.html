@@ -56,12 +56,12 @@
                         <img ng-if="dataItem.productImage != null" ng-src= {{dataItem.productImage}} alt=" {{dataItem.ProductName}} image" class="image2"/>
                         <img ng-if="dataItem.productImage == null || dataItem.productImage == undefined || dataItem.productImage == ''" ng-src="http://dingo.care2.com/pictures/greenliving/uploads/2011/07/fresh-vegetable-variety.jpg"
                              alt=" {{dataItem.ProductName}} image" class="image2">
-                        <p>{{dataItem.productPrice | currency }}</p>
+                        <p>Rs.{{dataItem.productPrice }}</p>
                         <h3>{{dataItem.productName }}</h3>
                         <h5>{{dataItem.description}}</h5>
                         <h5>{{dataItem.farmerFirstName}}</h5>
 
-                        <button id="addtocartbtn" class="btn btn-success" ng-click="addToCart(dataItem)">Add to Cart
+                        <button id="addtocartbtn" class="btn btn-success" ng-click="addToCart(dataItem)">Purchase
                         </button>
                     </div>
                 </div>
