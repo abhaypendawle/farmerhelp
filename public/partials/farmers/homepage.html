@@ -66,6 +66,16 @@
     </div>
 </div>
 <!--END GET RESOURCES-->
+<!--GET WHO REQUESTED MY RESOURCES-->
+<div  ng-show = "vari==10">
+    <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
+        <div class = "userInfo"><span id ="name">{{ value.reqfarmerName}} has requested your resource</span>
+            <div id="comments"> {{ value.resourceName}}  Contact him : {{value.reqfarmerphone}} </div>
+        </div>
+    </div>
+</div>
+<!--END OF GET WHO REQUESTED MY RESOURCES-->
+
 
 
 
