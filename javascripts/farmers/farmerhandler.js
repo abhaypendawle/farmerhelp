@@ -265,6 +265,8 @@ exports.ResourceRequest = function (info, user) {
     var tweetID = Crypto.createHash('sha1').update(user.ssn + new Date().getTime()).digest('hex');
     info.reqID = tweetID;
     info.reqfarmer = user.ssn;
+    info.reqfarmerName = user.firstName + " " + user.lastName;
+    info.reqfarmerphone = user.phoneNumber;
     info.isApproved = false;
 
     var deferred = Q.defer();
@@ -283,7 +285,6 @@ exports.ResourceRequest = function (info, user) {
     }
     return deferred.promise;
 };
-
 
 exports.searchfarmpract = function (info) {
     var deferred = Q.defer();
@@ -305,6 +306,27 @@ exports.searchfarmpract = function (info) {
     });
     return deferred.promise;
 };
+
+
+
+exports.getWhoReqMyResource = function (ssn) {
+    var deferred = Q.defer();
+    var cursor = MongoDB.collection("reqresource").find({"ownerSSN" : ssn});
+    var resourceList = [];
+    cursor.each(function (err, doc) {
+        if (err) {
+            deferred.reject(err);
+        }
+        if (doc != null) {
+            resourceList.push(doc);
+        } else {
+            console.log(resourceList);
+            deferred.resolve(resourceList);
+        }
+    });
+    return deferred.promise;
+};
+
 
 _sanitizeResourceInfo = function (info, user) {
     info.farmerFirstName = user.firstName;

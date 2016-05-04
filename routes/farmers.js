@@ -248,4 +248,23 @@ router.post("/requestResource", Auth.requireLogin, function (req, res) {
 });
 
 
+
+router.post("/getWhoReqMyResource", Auth.requireLogin, function (req, res) {
+    var promise = FarmerHandler.getWhoReqMyResource(req.session.user.ssn);
+    promise.done(function (resourceList) {
+        res.send({
+            success: true,
+            error: null,
+            data: resourceList
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
+
 module.exports = router;

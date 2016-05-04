@@ -20,6 +20,8 @@
         </a><span class="notification"></span></li>
         <li><a ng-click="getAllResources()">Available Resources <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification"></span></li>
+        <li><a ng-click="getWhoReqMyResource()">My Resources Requested <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification"></span></li>
         <li><a ng-click="getAllFarmers()">My Products &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="showTweets()">Farmer Feed <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
@@ -59,7 +61,7 @@
     <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
         <div class = "userInfo"><span id ="name">{{ value.farmerFirstName}}  {{value.farmerLastName}}</span>
             <div id="comments"> {{ value.resourceName}} </div>
-            <div id = "retweetButton"><a ng-click = "requestNewResource(value.farmerSSN,value.farmerFirstName,value.farmerLastName)" class="pull-right">Request This Resource</a></div>
+            <div id = "retweetButton"><a ng-click = "requestNewResource(value.farmerSSN,value.farmerFirstName,value.farmerLastName,value.resourceName,value.resourceID)" class="pull-right">Request This Resource</a></div>
         </div>
     </div>
 </div>
