@@ -10,7 +10,7 @@
         <div id="bill-totalAmount" class="mid col-sm-4">
             TOTAL
             <div>
-                ${{value.total_amount}}
+                Rs{{value.total_amount}}
             </div>
         </div>
         <div id="bill-orderNumber" class="right col-sm-4">
@@ -26,10 +26,10 @@
                 {{items.product_name}} X {{items.quantity}}
             </div>
             <div >
-                Price Per Unit :${{items.price_per_unit}}
+                Price Per Unit :Rs{{items.price_per_unit}}
             </div>
             <div >
-                Subtotal : ${{items.price_per_unit*items.quantity}}
+                Subtotal : Rs{{items.price_per_unit*items.quantity}}
             </div>
         </div>
         <div id="bill-expectedDeliveryDate" class="midright col-sm-3">

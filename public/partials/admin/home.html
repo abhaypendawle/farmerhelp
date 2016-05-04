@@ -25,8 +25,8 @@
         </a><span class="notification">{{tripslength}}</span></li>-->
         <li><a ng-click="getBillInfo()">Bills &nbsp <img src="https://cdn2.iconfinder.com/data/icons/vehicles-7/24/vehicles-11-24.png" />
         </a><span class="notification">{{billslength}}</span></li>
-        <li><a ng-click = "goToRevenuePerDay()">Revenue per Day</a></li>
-        <!--<li><a ng-click = "goToTripsPerCustomer()">Trips per Customer</a></li>
+        <!--<li><a ng-click = "goToRevenuePerDay()">Revenue per Day</a></li>
+        <li><a ng-click = "goToTripsPerCustomer()">Trips per Customer</a></li>
         <li><a ng-click = "goToTripsPerDriver()">Trips per Driver</a></li>
         <li><a ng-click = "goToTripsAnalyticsMap()">Trips Analytics Map</a></li>
         <li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
@@ -261,7 +261,7 @@
             </div>
             <div class="col-md-3">
                 <label>Total Amount</label>
-                <p>${{value.total_amount}}</p>
+                <p>RS{{value.total_amount}}</p>
             </div>
         </div>
         <div class="row">
@@ -283,7 +283,7 @@
                 <p>{{item.quantity}}</p>
             </div>
             <div class="col-md-3">
-                <p>${{item.price_per_unit}}</p>
+                <p>Rs{{item.price_per_unit}}</p>
             </div>
         </div>
     </div>
