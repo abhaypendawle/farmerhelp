@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="96b335b5-6820-4ae1-a942-c04c873483a3" name="Default" comment="Merge branch 'master' of https://github.com/pratiksanglikar/amazonfresh&#10;&#10;# Conflicts:&#10;#&#9;public/javascripts/app.js&#10;#&#9;public/stylesheets/style.css&#10;#&#9;views/index.ejs&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/farmers/homepage.html" afterPath="$PROJECT_DIR$/public/partials/farmers/homepage.html" />
     </list>
     <ignored path="amazonfresh.iws" />
@@ -47,8 +48,8 @@
       <file leaf-file-name="homepage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/partials/farmers/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4847397">
-              <caret line="339" column="10" selection-start-line="339" selection-start-column="10" selection-end-line="339" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.499187">
+              <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -69,6 +70,9 @@
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#1;n#div#0;n#div#7;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,14 +134,9 @@
       <file leaf-file-name="FarmersController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.690141">
-              <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
-              <folding>
-                <marker date="1462323503261" expanded="true" signature="4999:5408" placeholder="{...}" />
-                <marker date="1462323503261" expanded="true" signature="5076:5117" placeholder="{&quot;type&quot;: &quot;tomato&quot;...}" />
-                <marker date="1462323503261" expanded="true" signature="5207:5330" placeholder="{...}" />
-                <marker date="1462323503261" expanded="true" signature="5349:5399" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="-3.4507043">
+              <caret line="201" column="24" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -216,9 +215,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/farmers.js" />
         <option value="$PROJECT_DIR$/javascripts/farmers/farmerhandler.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/services/FarmerService.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js" />
         <option value="$PROJECT_DIR$/public/partials/farmers/homepage.html" />
       </list>
     </option>
@@ -748,9 +747,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3222958" sideWeight="0.50184894" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320442" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23535912" sideWeight="0.4981511" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23535912" sideWeight="0.4981511" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24972376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39889503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1138,19 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.690141">
-          <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
-          <folding>
-            <marker date="1462323503261" expanded="true" signature="4999:5408" placeholder="{...}" />
-            <marker date="1462323503261" expanded="true" signature="5076:5117" placeholder="{&quot;type&quot;: &quot;tomato&quot;...}" />
-            <marker date="1462323503261" expanded="true" signature="5207:5330" placeholder="{...}" />
-            <marker date="1462323503261" expanded="true" signature="5349:5399" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/services/FarmerService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.140845">
@@ -1172,10 +1158,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4507043">
+          <caret line="201" column="24" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/farmers/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4847397">
-          <caret line="339" column="10" selection-start-line="339" selection-start-column="10" selection-end-line="339" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.499187">
+          <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1196,6 +1190,9 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#1;n#div#0;n#div#7;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

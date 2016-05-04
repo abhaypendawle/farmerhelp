@@ -24,7 +24,9 @@
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="showTweets()">Farmer Feed <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification"></span></li>
-        <li><a ng-click="getUrl()">Video <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-24.png" />
+        <li><a ng-click="getUrl()">Search Video<img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-24.png" />
+        </a><span class="notification"></span></li>
+        <li><a ng-click="videos()">Educational Videos<img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-24.png" />
         </a><span class="notification"></span></li>
         <!--<li><a href="#">Charts &nbsp <img src="https://cdn0.iconfinder.com/data/icons/free-misc-icon-set-2/512/graph_up_arrow-24.png" />
         </a></li>-->
@@ -134,27 +136,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 
@@ -347,6 +328,15 @@
             <a href="{{value.url}}" target="_blank" style="padding: 10px">click here</a>
         </div>
     </div>
+</div>
+
+<div  ng-show="vari == 7">
+    <div style="margin-left: 35rem; ">
+        <iframe  src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F1611289549132269%2Fvideos%2Fvb.1611289549132269%2F1674903262770897%2F%3Ftype%3D3&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+        <br>
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F1611289549132269%2Fvideos%2Fvb.1611289549132269%2F1675895919338298%2F%3Ftype%3D3&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+    </div>
+
 </div>
 
 <!-- Resource Code Starts -->

@@ -197,6 +197,13 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
 
     }
 
+    $scope.videos = function()
+    {
+        alert("in videos");
+        $scope.vari = 7;
+
+    }
+
 
 }]);
 
