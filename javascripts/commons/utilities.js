@@ -97,7 +97,8 @@ exports.validateZipCode = function (zipCode) {
 	if(exports.isEmpty(zipCode)) {
 		return false;
 	}
-	var regex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+	//var regex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+	var regex = /^[1-9][0-9]{5}$/;
 	if(!regex.test(zipCode)) {
 		return false;
 	}
