@@ -108,7 +108,7 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
             "phoneNumber": $scope.data.phoneNumber,
             "ssn": $scope.data.ssn,
             "address": $scope.data.address,
-            "state": $scope.state,
+            "state": $scope.data.state,
             "city": $scope.data.city,
             "zipCode": $scope.data.zipCode,
             "usertype" : $scope.data.usertype,
