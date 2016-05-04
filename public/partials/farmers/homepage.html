@@ -18,6 +18,8 @@
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="regResource()">Register Resources <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification"></span></li>
+        <li><a ng-click="getAllResources()">Available Resources <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
+        </a><span class="notification"></span></li>
         <li><a ng-click="getAllFarmers()">My Products &nbsp <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
         </a><span class="notification">{{farmlength}}</span></li>
         <li><a ng-click="showTweets()">Farmer Feed <img src="https://cdn3.iconfinder.com/data/icons/mobipeople/512/farmer_remove_volume_vector_icons-24.png" />
@@ -49,6 +51,18 @@
     </div>
 </div>
     </div>
+
+<!--GET RESOURCES-->
+<div  ng-show = "vari==6">
+    <div ng-repeat = "value in res" style="margin-left: 12rem;margin-top : 2rem" >
+        <div class = "userInfo"><span id ="name">{{ value.farmerFirstName}}  {{value.farmerLastName}}</span>
+            <div id="comments"> {{ value.resourceName}} </div>
+            <div id = "retweetButton"><a ng-click = "retweet(value.tweet_text,value.twitter_handle)" class="pull-right">Request This Resource</a></div>
+        </div>
+    </div>
+</div>
+<!--END GET RESOURCES-->
+
 
 
 <!--<div class = "searchdiv ">

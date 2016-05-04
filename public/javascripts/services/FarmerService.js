@@ -120,6 +120,28 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
             });
             return def.promise;
         },
+
+        getMyResources : function () {
+            var url = "http://localhost:3000/farmers/getMyResources";
+            var def = $q.defer();
+            $http({
+                method: 'POST',
+                url: url
+            }).then(function (data) {
+                if (data) {
+                    def.resolve(data);
+                } else {
+                    def.reject(data.data.error);
+                }
+            }, function (error) {
+                if(error.status === 302) {
+                    $window.location.href = "http://localhost:3000/#auth/login";
+                }
+                def.reject(error);
+            });
+            return def.promise;
+        },
+
         postTweet: function (info) {
             var url = "http://farmerhelp.mybluemix.net/farmers/postTweet";
             var def = $q.defer();

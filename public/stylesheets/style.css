@@ -40,6 +40,12 @@ body {
     margin-top: -33px;
 }
 
+
+#retweetButton{
+    height: 20px;
+    margin-top:-20px;
+}
+
 #nav {
     color: #fff;
     height: 45px;

@@ -206,4 +206,24 @@ router.post("/regResource", Auth.requireLogin, function (req, res) {
     });
 });
 
+
+router.post("/getMyResources", Auth.requireLogin, function (req, res) {
+    var promise = FarmerHandler.getAllResources();
+    promise.done(function (resourceList) {
+        res.send({
+            success: true,
+            error: null,
+            data: resourceList
+        });
+    }, function (error) {
+        res.status(500)
+            .send({
+                success: false,
+                error: error,
+                data: null
+            });
+    });
+});
+
+
 module.exports = router;

@@ -165,6 +165,19 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         });
     }
 
+    $scope.getAllResources = function()
+    {
+        $scope.vari = 6;
+        var promise = FarmerService.getMyResources();
+        promise.then(function (result) {
+            $scope.res = result.data.data;
+        }, function (error) {
+            alert("Error - " + error);
+        });
+    }
+
+
+
     $scope.getUrl = function()
     {
 

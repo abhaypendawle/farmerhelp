@@ -239,6 +239,26 @@ exports.createResource = function (info, user) {
     return deferred.promise;
 };
 
+
+exports.getAllResources = function () {
+    var deferred = Q.defer();
+    var cursor = MongoDB.collection("resources").find();
+    var resourceList = [];
+    cursor.each(function (err, doc) {
+        if (err) {
+            deferred.reject(err);
+        }
+        if (doc != null) {
+            resourceList.push(doc);
+        } else {
+            console.log(resourceList);
+            deferred.resolve(resourceList);
+        }
+    });
+    return deferred.promise;
+};
+
+
 exports.searchfarmpract = function (info) {
     var deferred = Q.defer();
     var info = JSON.parse(info);
