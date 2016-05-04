@@ -165,7 +165,24 @@ app.controller('FarmersController',["$scope","US_STATES","FarmerService","Produc
         });
     }
 
+    $scope.getUrl = function()
+    {
 
+        alert("in resource");
+        $scope.vari = 5;
+        var info = {
+            "type" : "tomato"
+        }
+        var promise = FarmerService.getUrl(info);
+        promise.then(function (result) {
+            $scope.result = result.data.data;
+            //alert($scope.result1)
+            alert("Success");
+        }, function (error) {
+            alert("Error - " + error);
+        });
+
+    }
 
 
 }]);

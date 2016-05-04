@@ -239,6 +239,26 @@ exports.createResource = function (info, user) {
     return deferred.promise;
 };
 
+exports.searchfarmpract = function (info) {
+    var deferred = Q.defer();
+    var info = JSON.parse(info);
+    console.log("Data is" + info);
+    var cursor = MongoDB.collection("farmpract").find({"type": "tomato"});
+    var farmerList = [];
+    cursor.each(function (err, doc) {
+        if (err) {
+            deferred.reject(err);
+        }
+        if (doc != null) {
+            //console.log(doc);
+            farmerList.push(doc);
+        } else {
+            console.log("Here is " + farmerList);
+            deferred.resolve(farmerList);
+        }
+    });
+    return deferred.promise;
+};
 
 _sanitizeResourceInfo = function (info, user) {
     info.farmerFirstName = user.firstName;
