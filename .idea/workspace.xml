@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/public/partials/products/products_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.53940886">
-              <caret line="83" column="29" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="29" />
+              <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -87,8 +87,8 @@
       <file leaf-file-name="homepage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/partials/farmers/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -98,6 +98,7 @@
                 <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <marker date="1462348829323" expanded="true" signature="1826:1840" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -477,15 +478,19 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/javascripts/farmers/farmerhandler.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/javascripts/commons/utilities.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/AdminController.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/AnalyticsController.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/BillsController.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/FarmersController.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/ProductController.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/controllers/customersController.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/services/AdminService.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/services/BillService.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/javascripts/services/FarmerService.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/partials/admin/home.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/partials/bills/orders.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/partials/farmers/homepage.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/partials/products/products_list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/stylesheets/style.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/farmers.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1136,8 +1141,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/farmers/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1147,6 +1152,7 @@
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <marker date="1462348829323" expanded="true" signature="1826:1840" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1154,7 +1160,7 @@
     <entry file="file://$PROJECT_DIR$/public/partials/products/products_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53940886">
-          <caret line="83" column="29" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="29" />
+          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
           <folding />
         </state>
       </provider>
