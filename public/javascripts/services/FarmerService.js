@@ -140,7 +140,31 @@ angular.module("farmerhelp").factory("FarmerService",["$window","$http","$q", fu
                 def.reject(error.data.error);
             });
             return def.promise;
+        },
+
+        getUrl : function (info) {
+            var url = "http://localhost:3000/farmers/searchfarmpract";
+            alert(info.type);
+            var def = $q.defer();
+            $http({
+                method: 'POST',
+                url: url,
+                data: info
+            }).then(function (data) {
+                if (data) {
+                    def.resolve(data);
+                } else {
+                    def.reject(data.data.error);
+                }
+            }, function (error) {
+                if(error.status === 302) {
+                    $window.location.href = "http://localhost:3000/#auth/login";
+                }
+                def.reject(error);
+            });
+            return def.promise;
         }
+
     };
     return FarmerService;
 }]);
