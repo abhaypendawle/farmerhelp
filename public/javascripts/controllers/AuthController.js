@@ -26,6 +26,11 @@ app.controller('AuthController', ["$scope","$window","AuthService","USER_TYPES",
 		$window.location.href = "/#products/home";
 	}
 
+	$scope.goToCustomerSignUp = function()
+	{
+		$window.location.href = "/#customers/signup";
+	}
+
 	$scope.redirectToAdminPage = function () {
 		$window.location.href = "/#admin/home";
 	};
