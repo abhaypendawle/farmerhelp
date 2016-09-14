@@ -1,2 +1,2 @@
 # FarmerHelp
-CMPE-272 Group project.
+http://farmerhelp.mybluemix.net/
